@@ -1,0 +1,26 @@
+COMMENT AJOUTER LES PHOTOS DU SITE
+==================================
+
+1. Mets tes photos dans ce dossier (images/).
+2. Donne-leur EXACTEMENT ces noms (jusqu'à 4 photos par catégorie).
+   Formats acceptés : .jpg  .jpeg  .png  .webp
+3. Actualise la page produits.html : les photos apparaissent toutes seules.
+   S'il y a plusieurs photos, de petites images cliquables s'affichent en dessous.
+
+Coffret anniversaire         coffret-anniversaire-1.jpg   (puis -2, -3, -4)
+Coffret réussite / diplôme   coffret-reussite-1.jpg       (puis -2, -3, -4)
+Coffret couples et fêtes     coffret-couples-1.jpg        (puis -2, -3, -4)
+Coffret entreprises          coffret-entreprises-1.jpg    (puis -2, -3, -4)
+Robes                        robes-1.jpg                  (puis -2, -3, -4)
+Accessoires                  accessoires-1.jpg            (puis -2, -3, -4)
+
+CONSEILS
+- Utilise tes propres photos (celles de tes vrais produits), ou des photos libres
+  de droits (Unsplash, Pexels). Ne prends pas des photos protégées trouvées au hasard.
+- Reste sous 500 Ko par photo pour que le site s'ouvre vite.
+- Pas d'espace ni d'accent dans les noms de fichiers.
+
+PHOTOS DES CARTES DE CATÉGORIES (accueil et page produits)
+Coffrets cadeaux             categorie-coffrets-1.jpg     (puis -2, -3, -4)
+Robes                        robes-1.jpg                  (la même que ci-dessus)
+Accessoires                  accessoires-1.jpg            (la même que ci-dessus)

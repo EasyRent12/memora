@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memora – Des cadeaux qui racontent une histoire</title>
+  <meta name="description" content="Memora : coffrets cadeaux personnalisés, robes et accessoires pour célébrer chaque occasion.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- En-tête et menu principal (identique sur toutes les pages) -->
+  <header>
+    <div class="conteneur barre">
+      <a class="logo" href="index.html">Memora<span>♥</span></a>
+      <button class="bouton-menu" id="bouton-menu" aria-label="Ouvrir le menu">☰</button>
+      <nav>
+        <ul id="menu">
+          <li><a href="index.html" class="actif">Accueil</a></li>
+          <li><a href="produits.html">Produits</a>
+            <ul class="sous-menu">
+              <li><a href="coffrets.html">Coffrets cadeaux</a></li>
+              <li><a href="robes.html">Robes</a></li>
+              <li><a href="accessoires.html">Accessoires</a></li>
+            </ul>
+          </li>
+          <li><a href="produit-vedette.html">Coffret personnalisé</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="connexion.html" id="lien-compte">👤 Compte</a></li>
+          <li><a href="panier.html">🛒 Panier <span class="compteur" id="compteur-panier">0</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section principale -->
+    <section class="hero">
+      <div class="conteneur">
+        <h1>Memora</h1>
+        <p class="slogan">« Chaque cadeau raconte une histoire »</p>
+        <p>Pour ceux qui expriment leurs émotions par un cadeau : coffrets personnalisés, robes et accessoires, prêts à offrir avec un emballage soigné.</p>
+        <a class="bouton" href="produits.html">Découvrir nos produits</a>
+        <a class="bouton clair" href="contact.html">Passer commande</a>
+      </div>
+    </section>
+
+    <!-- Proposition de valeur (issue du Business Model Canvas) -->
+    <section>
+      <div class="conteneur">
+        <div class="titre-section">
+          <h2>Pourquoi choisir Memora ?</h2>
+          <p>Un cadeau n'est pas seulement un objet : c'est une attention et un souvenir.</p>
+        </div>
+        <div class="grille">
+          <div class="carte">
+            <div class="icone">🎁</div>
+            <h3>Coffrets personnalisés</h3>
+            <p>Des coffrets cadeaux adaptés aux goûts et au budget de chacun.</p>
+          </div>
+          <div class="carte">
+            <div class="icone">💌</div>
+            <h3>Plusieurs produits, un seul coffret</h3>
+            <p>Plusieurs articles regroupés dans un coffret à un prix abordable.</p>
+          </div>
+          <div class="carte">
+            <div class="icone">🎉</div>
+            <h3>Pour chaque occasion</h3>
+            <p>Anniversaire, réussite, diplôme, fête, mariage… il y a un coffret pour chaque moment.</p>
+          </div>
+          <div class="carte">
+            <div class="icone">⏱️</div>
+            <h3>Commande simple et rapide</h3>
+            <p>Un gain de temps grâce à l'achat en ligne et à l'aide de notre équipe.</p>
+          </div>
+          <div class="carte">
+            <div class="icone">🎀</div>
+            <h3>Cadeaux originaux, prêts à offrir</h3>
+            <p>Un emballage soigné pour que le cadeau soit prêt à être offert.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nos catégories (cartes créées à partir de donnees.js) -->
+    <section class="fond-rose">
+      <div class="conteneur">
+        <div class="titre-section">
+          <h2>Nos catégories</h2>
+          <p>Des cadeaux personnalisés, des robes et des accessoires réunis au même endroit.</p>
+        </div>
+        <div class="grille" data-rendu="categories"></div>
+        <p style="text-align:center; margin-top:28px;">
+          <a class="bouton" href="produits.html">Voir tous les produits</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Pour qui ? (segments de clientèle du BMC) -->
+    <section>
+      <div class="conteneur">
+        <div class="titre-section">
+          <h2>Memora s'adresse à vous</h2>
+        </div>
+        <div class="grille">
+          <div class="carte"><h3>Jeunes</h3><p>À la recherche d'idées cadeaux originales.</p></div>
+          <div class="carte"><h3>Couples</h3><p>Pour les occasions spéciales.</p></div>
+          <div class="carte"><h3>Familles et amis</h3><p>Qui souhaitent offrir des cadeaux personnalisés.</p></div>
+          <div class="carte"><h3>Entreprises</h3><p>Pour offrir des cadeaux à leurs employés ou partenaires.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Appel à l'action -->
+    <section class="appel">
+      <div class="conteneur">
+        <h2>Offrez plus qu'un cadeau : offrez une émotion personnalisée</h2>
+        <p>Une idée, une occasion, un budget ? Dites-nous tout, nous vous conseillons.</p>
+        <a class="bouton" href="contact.html">Nous contacter</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pied de page (identique sur toutes les pages) -->
+  <footer>
+    <div class="conteneur">
+      <p class="logo" style="color:#fff;">Memora</p>
+      <p>Des cadeaux qui racontent une histoire</p>
+      <div class="liens">
+        <a href="index.html">Accueil</a>
+        <a href="produits.html">Produits</a>
+        <a href="produit-vedette.html">Coffret personnalisé</a>
+        <a href="a-propos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p class="petit">© 2026 Memora – Projet étudiant</p>
+    </div>
+  </footer>
+
+  <!-- Bouton retour en haut -->
+  <button id="haut" aria-label="Retour en haut">↑</button>
+
+  <script src="donnees.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

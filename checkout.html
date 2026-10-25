@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commande | Memora</title>
+  <meta name="description" content="Finalise ta commande de démonstration Memora : livraison et paiement simulé.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-protege="checkout.html">
+
+  <!-- En-tête et menu principal (identique sur toutes les pages) -->
+  <header>
+    <div class="conteneur barre">
+      <a class="logo" href="index.html">Memora<span>♥</span></a>
+      <button class="bouton-menu" id="bouton-menu" aria-label="Ouvrir le menu">☰</button>
+      <nav>
+        <ul id="menu">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="produits.html">Produits</a>
+            <ul class="sous-menu">
+              <li><a href="coffrets.html">Coffrets cadeaux</a></li>
+              <li><a href="robes.html">Robes</a></li>
+              <li><a href="accessoires.html">Accessoires</a></li>
+            </ul>
+          </li>
+          <li><a href="produit-vedette.html">Coffret personnalisé</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="connexion.html" id="lien-compte">👤 Compte</a></li>
+          <li><a href="panier.html" class="actif">🛒 Panier <span class="compteur" id="compteur-panier">0</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="conteneur">
+        <!-- Protection SIMULÉE : cette redirection JavaScript n'est pas une vraie sécurité. -->
+        <h1>Passer la commande</h1>
+        <div class="avertissement"><strong>Aucun paiement réel ne sera effectué.</strong> Utilise des coordonnées fictives pour tester.</div>
+        <form id="formulaire-commande" novalidate>
+          <div class="panier-grille">
+            <div>
+              <div class="carte" style="margin-bottom:20px;">
+                <h2 style="font-size:1.3rem;">Informations de livraison</h2>
+                <div class="deux-champs">
+                  <div><label for="co-prenom">Prénom</label><input type="text" id="co-prenom"></div>
+                  <div><label for="co-nom">Nom</label><input type="text" id="co-nom"></div>
+                </div>
+                <div class="deux-champs">
+                  <div><label for="co-email">Adresse e-mail</label><input type="email" id="co-email"></div>
+                  <div><label for="co-tel">Téléphone</label><input type="tel" id="co-tel" placeholder="Numéro fictif"></div>
+                </div>
+                <label for="co-adresse">Adresse</label><input type="text" id="co-adresse" placeholder="Adresse fictive">
+                <div class="deux-champs">
+                  <div><label for="co-ville">Ville</label><input type="text" id="co-ville"></div>
+                  <div><label for="co-cp">Code postal</label><input type="text" id="co-cp"></div>
+                </div>
+                <label for="co-pays">Pays</label><input type="text" id="co-pays">
+              </div>
+              <div class="carte" style="margin-bottom:20px;">
+                <h2 style="font-size:1.3rem;">Mode de livraison</h2>
+                <p><strong>Livraison standard</strong> (à domicile ou chez le destinataire)</p>
+                <p class="petit" style="color:var(--texte);" id="regle-livraison"></p>
+              </div>
+              <div class="carte">
+                <h2 style="font-size:1.3rem;">Moyen de paiement (simulé)</h2>
+                <div class="options-paiement">
+                  <label><input type="radio" name="paiement" value="carte"> Carte bancaire — Démonstration (**** **** **** 4242)</label>
+                  <label><input type="radio" name="paiement" value="livraison"> Paiement à la livraison — Démonstration</label>
+                </div>
+                <p class="petit" style="color:var(--texte);">Ne saisis jamais de vrai numéro de carte : il n'est pas demandé.</p>
+              </div>
+            </div>
+            <aside class="resume">
+              <div id="resume-commande"></div>
+              <div class="message-erreur" id="erreurs-commande" role="alert"></div>
+              <p class="petit" style="color:var(--texte);">Aucun paiement réel ne sera effectué.</p>
+              <button type="submit" class="bouton" id="bouton-payer" style="width:100%;">Simuler le paiement</button>
+            </aside>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pied de page -->
+  <footer>
+    <div class="conteneur">
+      <p class="logo" style="color:#fff;">Memora</p>
+      <p>Des cadeaux qui racontent une histoire</p>
+      <div class="liens">
+        <a href="index.html">Accueil</a>
+        <a href="produits.html">Produits</a>
+        <a href="produit-vedette.html">Coffret personnalisé</a>
+        <a href="a-propos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p class="petit">© 2026 Memora – Projet étudiant. Site de démonstration : aucun paiement réel.</p>
+    </div>
+  </footer>
+
+  <button id="haut" aria-label="Retour en haut">↑</button>
+  <script src="donnees.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

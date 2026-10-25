@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon compte | Memora</title>
+  <meta name="description" content="Espace personnel de démonstration Memora : informations et commandes simulées.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-protege="compte.html">
+
+  <!-- En-tête et menu principal (identique sur toutes les pages) -->
+  <header>
+    <div class="conteneur barre">
+      <a class="logo" href="index.html">Memora<span>♥</span></a>
+      <button class="bouton-menu" id="bouton-menu" aria-label="Ouvrir le menu">☰</button>
+      <nav>
+        <ul id="menu">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="produits.html">Produits</a>
+            <ul class="sous-menu">
+              <li><a href="coffrets.html">Coffrets cadeaux</a></li>
+              <li><a href="robes.html">Robes</a></li>
+              <li><a href="accessoires.html">Accessoires</a></li>
+            </ul>
+          </li>
+          <li><a href="produit-vedette.html">Coffret personnalisé</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="connexion.html" class="actif" id="lien-compte">👤 Compte</a></li>
+          <li><a href="panier.html">🛒 Panier <span class="compteur" id="compteur-panier">0</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="conteneur">
+        <!-- Protection SIMULÉE : cette redirection JavaScript n'est pas une vraie sécurité. -->
+        <h1 id="bonjour">Mon compte</h1>
+        <div id="infos-compte" class="carte" style="margin-bottom:24px;">
+          <h2 style="font-size:1.3rem;">Mes informations</h2>
+          <p><strong>Prénom :</strong> <span id="info-prenom"></span></p>
+          <p><strong>Nom :</strong> <span id="info-nom"></span></p>
+          <p><strong>E-mail (fictif) :</strong> <span id="info-email"></span></p>
+          <p><strong>Vérification :</strong> <span id="info-verifie"></span></p>
+          <button type="button" class="bouton clair" id="bouton-deconnexion">Se déconnecter</button>
+        </div>
+        <h2 style="font-size:1.3rem;">Mes commandes</h2>
+        <p class="petit" style="color:var(--texte);">Uniquement les commandes simulées faites avec ce compte dans ce navigateur.</p>
+        <div class="vide" id="aucune-commande" style="display:none;"><p>Tu n'as pas encore passé de commande.</p><a class="bouton" href="produits.html">Découvrir nos produits</a></div>
+        <div class="tableau-defilant" id="tableau-commandes">
+          <table class="commandes">
+            <thead><tr><th>Référence</th><th>Date</th><th>Montant</th><th>Articles</th><th>Statut</th></tr></thead>
+            <tbody id="corps-commandes"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pied de page -->
+  <footer>
+    <div class="conteneur">
+      <p class="logo" style="color:#fff;">Memora</p>
+      <p>Des cadeaux qui racontent une histoire</p>
+      <div class="liens">
+        <a href="index.html">Accueil</a>
+        <a href="produits.html">Produits</a>
+        <a href="produit-vedette.html">Coffret personnalisé</a>
+        <a href="a-propos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p class="petit">© 2026 Memora – Projet étudiant. Site de démonstration : aucun paiement réel.</p>
+    </div>
+  </footer>
+
+  <button id="haut" aria-label="Retour en haut">↑</button>
+  <script src="donnees.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

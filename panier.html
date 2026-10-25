@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon panier | Memora</title>
+  <meta name="description" content="Ton panier Memora : modifie les quantités et passe à la commande simulée.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- En-tête et menu principal (identique sur toutes les pages) -->
+  <header>
+    <div class="conteneur barre">
+      <a class="logo" href="index.html">Memora<span>♥</span></a>
+      <button class="bouton-menu" id="bouton-menu" aria-label="Ouvrir le menu">☰</button>
+      <nav>
+        <ul id="menu">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="produits.html">Produits</a>
+            <ul class="sous-menu">
+              <li><a href="coffrets.html">Coffrets cadeaux</a></li>
+              <li><a href="robes.html">Robes</a></li>
+              <li><a href="accessoires.html">Accessoires</a></li>
+            </ul>
+          </li>
+          <li><a href="produit-vedette.html">Coffret personnalisé</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="connexion.html" id="lien-compte">👤 Compte</a></li>
+          <li><a href="panier.html" class="actif">🛒 Panier <span class="compteur" id="compteur-panier">0</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="conteneur">
+        <h1>Mon panier</h1>
+        <div id="contenu-panier"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pied de page -->
+  <footer>
+    <div class="conteneur">
+      <p class="logo" style="color:#fff;">Memora</p>
+      <p>Des cadeaux qui racontent une histoire</p>
+      <div class="liens">
+        <a href="index.html">Accueil</a>
+        <a href="produits.html">Produits</a>
+        <a href="produit-vedette.html">Coffret personnalisé</a>
+        <a href="a-propos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p class="petit">© 2026 Memora – Projet étudiant. Site de démonstration : aucun paiement réel.</p>
+    </div>
+  </footer>
+
+  <button id="haut" aria-label="Retour en haut">↑</button>
+  <script src="donnees.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessoires cadeaux et mode | Memora</title>
+  <meta name="description" content="La collection d'accessoires Memora arrive bientôt : de quoi compléter un cadeau ou se faire plaisir.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- En-tête et menu principal (identique sur toutes les pages) -->
+  <header>
+    <div class="conteneur barre">
+      <a class="logo" href="index.html">Memora<span>♥</span></a>
+      <button class="bouton-menu" id="bouton-menu" aria-label="Ouvrir le menu">☰</button>
+      <nav>
+        <ul id="menu">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="produits.html" class="actif">Produits</a>
+            <ul class="sous-menu">
+              <li><a href="coffrets.html">Coffrets cadeaux</a></li>
+              <li><a href="robes.html">Robes</a></li>
+              <li><a href="accessoires.html">Accessoires</a></li>
+            </ul>
+          </li>
+          <li><a href="produit-vedette.html">Coffret personnalisé</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="connexion.html" id="lien-compte">👤 Compte</a></li>
+          <li><a href="panier.html">🛒 Panier <span class="compteur" id="compteur-panier">0</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="conteneur">
+        <nav class="fil" aria-label="Fil d'Ariane">
+          <ol>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="produits.html">Produits</a></li>
+            <li><span aria-current="page">Accessoires</span></li>
+          </ol>
+        </nav>
+        <div class="titre-section">
+          <h1>Accessoires</h1>
+          <p>Les petits détails qui complètent un cadeau.</p>
+        </div>
+        <!-- Les produits viennent de donnees.js (catégorie : accessoires) -->
+        <div class="grille" data-rendu="produits-categorie" data-categorie="accessoires"></div>
+        <p style="text-align:center; margin-top:28px;"><a class="bouton clair" href="produits.html">← Retour à tous les produits</a></p>
+      </div>
+    </section>
+
+    <!-- Découvrez aussi : les autres catégories -->
+    <section class="fond-rose">
+      <div class="conteneur">
+        <div class="titre-section"><h2>Découvrez aussi</h2></div>
+        <div class="grille" data-rendu="decouvrez-aussi" data-actuelle="accessoires"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pied de page -->
+  <footer>
+    <div class="conteneur">
+      <p class="logo" style="color:#fff;">Memora</p>
+      <p>Des cadeaux qui racontent une histoire</p>
+      <div class="liens">
+        <a href="index.html">Accueil</a>
+        <a href="produits.html">Produits</a>
+        <a href="produit-vedette.html">Coffret personnalisé</a>
+        <a href="a-propos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p class="petit">© 2026 Memora – Projet étudiant. Site de démonstration : aucun paiement réel.</p>
+    </div>
+  </footer>
+
+  <button id="haut" aria-label="Retour en haut">↑</button>
+  <script src="donnees.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

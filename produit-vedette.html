@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coffrets personnalisés – Memora</title>
+<meta name="description" content="Créez un coffret cadeau personnalisé avec Memora : choisissez vos articles, votre emballage et votre message.">
+<style>
+:root{--rose:#f8e6eb;--accent:#c85c7a;--ink:#30252a;--pale:#fffafb;--line:#ecd7de}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--pale);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.6}a{text-decoration:none;color:inherit}.wrap{width:min(1180px,92%);margin:auto}
+header{background:#fff;position:sticky;top:0;z-index:5;box-shadow:0 2px 14px #0000000c}.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:10px 0}.logo{font-size:1.9rem;font-weight:800}.logo span{color:var(--accent)}nav ul{display:flex;gap:20px;list-style:none;padding:0;margin:0;flex-wrap:wrap}nav a:hover,nav .active{color:var(--accent)}button,input,select,textarea{font:inherit}.btn{display:inline-block;background:var(--accent);color:white;border:0;border-radius:26px;padding:12px 20px;font-weight:bold;cursor:pointer}.btn.light{background:var(--rose);color:#8d3652}.cart{border:0;background:var(--rose);border-radius:25px;padding:10px 15px;cursor:pointer;font-weight:bold}
+.hero{padding:70px 0;text-align:center;background:linear-gradient(100deg,#fff0f4ee,#fff0f488),url('https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=1800&q=85') center/cover}.hero h1{font-size:clamp(2.2rem,5vw,3.5rem);margin:0}.hero p{max-width:700px;margin:12px auto 22px}
+section{padding:42px 0}.heading{text-align:center;margin:0 auto 28px}.heading h2{font-size:2rem;margin:0 0 8px}.heading p{color:#796970;margin:0}
+.layout{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:start}.panel{background:#fff;border-radius:18px;padding:24px;box-shadow:0 8px 25px #5c26300d}.panel h2,.panel h3{margin-top:0}.step{padding-bottom:20px;margin-bottom:22px;border-bottom:1px solid #f0e1e5}.step:last-child{border-bottom:0;margin-bottom:0}.step-title{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.1rem;margin-bottom:13px}.num{display:inline-grid;place-items:center;width:30px;height:30px;background:var(--rose);color:#8d3652;border-radius:50%}
+.options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.option{display:flex;gap:10px;align-items:center;border:1px solid var(--line);padding:12px;border-radius:12px;cursor:pointer}.option:has(input:checked){border-color:var(--accent);background:#fff4f7;box-shadow:0 0 0 1px var(--accent)}.option input{accent-color:var(--accent);flex-shrink:0}.option small{display:block;color:#76666d}.option-card{display:block;padding:0;overflow:hidden}.option-card img{width:100%;height:135px;object-fit:cover;display:block}.option-card .option-text{display:flex;align-items:flex-start;gap:8px;padding:10px}.option-card .option-text input{margin-top:5px}.option-card .option-text span{display:block}.option-card strong{display:block}.box-options{grid-template-columns:repeat(2,minmax(0,1fr))}.box-options .option-card img{height:165px}.box-options .option-text{padding:12px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field input,.field select,.field textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;background:#fff;outline-color:var(--accent)}.field textarea{resize:vertical}
+.summary{position:sticky;top:100px}.preview{width:100%;height:235px;object-fit:cover;border-radius:13px;margin-bottom:15px}.summary-row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid #f1e5e8}.summary-row.total{font-size:1.25rem;font-weight:800;border-bottom:0;padding-top:16px}.muted{color:#76666d;font-size:.9rem}.status{display:none;background:#e9f8ee;color:#23643a;border-radius:10px;padding:12px;margin-top:15px;white-space:pre-wrap}.small{font-size:.83rem;color:#796970}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.gallery article{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 7px 22px #5c26300c}.gallery img{width:100%;height:180px;object-fit:cover}.gallery div{padding:14px}.gallery h3{margin:0 0 5px}.gallery p{margin:0;color:#76666d;font-size:.92rem}
+footer{background:#30252a;color:#fff;text-align:center;padding:30px 0}footer .links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:12px 0}.smallfoot{font-size:.84rem;opacity:.8}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.summary{position:static}.nav{align-items:flex-start}nav{width:100%}.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.options,.fields,.gallery{grid-template-columns:1fr}.hero{padding:50px 0}.panel{padding:17px}.field.full{grid-column:auto}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+ <a class="logo" href="index.html">Memora<span>♥</span></a>
+ <nav aria-label="Navigation principale"><ul><li><a href="index.html">Accueil</a></li><li><a href="produits.html">Produits</a></li><li><a class="active" href="produit-vedette.html">Coffret personnalisé</a></li><li><a href="a-propos.html">À propos</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+ <button class="cart" onclick="voirPanier()">🛒 Panier (<span id="count">0</span>)</button>
+</div></header>
+<main>
+<section class="hero"><div class="wrap"><h1>Créez votre coffret cadeau 💝</h1><p>Un cadeau qui vous ressemble : choisissez une boîte, sélectionnez vos surprises, ajoutez un prénom et un message spécial.</p><a class="btn" href="#createur">Personnaliser mon coffret</a></div></section>
+<section id="createur"><div class="wrap">
+ <div class="heading"><h2>Votre coffret, étape par étape</h2><p>Composez une idée cadeau unique pour un anniversaire, une fête ou simplement pour faire plaisir.</p></div>
+ <div class="layout">
+  <form class="panel" id="form-coffret">
+   <div class="step"><div class="step-title"><span class="num">1</span> Choisissez votre coffret</div>
+    <div class="options box-options">
+     <label class="option option-card"><img src="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=700&q=85" alt="Petit coffret cadeau emballé"><div class="option-text"><input type="radio" name="boite" value="Petit coffret" data-price="25" checked><span><strong>Petit coffret</strong><small>2 à 3 articles · 25 DT</small></span></div></label>
+     <label class="option option-card"><img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=700&q=85" alt="Coffret cadeau classique avec ruban"><div class="option-text"><input type="radio" name="boite" value="Coffret classique" data-price="40"><span><strong>Coffret classique</strong><small>4 à 5 articles · 40 DT</small></span></div></label>
+     <label class="option option-card"><img src="https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&w=700&q=85" alt="Grand coffret cadeau élégant"><div class="option-text"><input type="radio" name="boite" value="Grand coffret luxe" data-price="60"><span><strong>Grand coffret luxe</strong><small>6 à 8 articles · 60 DT</small></span></div></label>
+     <label class="option option-card"><img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=700&q=85" alt="Cadeau romantique à offrir"><div class="option-text"><input type="radio" name="boite" value="Coffret romantique" data-price="50"><span><strong>Coffret romantique</strong><small>Présentation spéciale · 50 DT</small></span></div></label>
+    </div>
+   </div>
+   <div class="step"><div class="step-title"><span class="num">2</span> Ajoutez vos surprises</div>
+    <div class="options" id="surprises">
+     <label class="option option-card"><img loading="lazy" src="https://images.unsplash.com/photo-1548907040-4d42a2b3f3c5?auto=format&fit=crop&w=600&q=80" alt="Assortiment de chocolats"><div class="option-text"><input type="checkbox" name="item" value="Chocolats" data-price="12"><span><strong>🍫 Chocolats</strong><small>+12 DT</small></span></div></label>
+     <label class="option option-card"><img loading="lazy" src="https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=600&q=80" alt="Bougie parfumée"><div class="option-text"><input type="checkbox" name="item" value="Bougie parfumée" data-price="15"><span><strong>🕯️ Bougie parfumée</strong><small>+15 DT</small></span></div></label>
+     <label class="option option-card"><img loading="lazy" src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80" alt="Collier fin"><div class="option-text"><input type="checkbox" name="item" value="Bijou" data-price="20"><span><strong>💍 Bijou</strong><small>+20 DT</small></span></div></label>
+     <label class="option option-card"><img loading="lazy" src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80" alt="Peluche douce"><div class="option-text"><input type="checkbox" name="item" value="Peluche" data-price="18"><span><strong>🧸 Peluche</strong><small>+18 DT</small></span></div></label>
+     <label class="option option-card"><img loading="lazy" src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=600&q=80" alt="Mug en céramique"><div class="option-text"><input type="checkbox" name="item" value="Mug personnalisé" data-price="16"><span><strong>☕ Mug personnalisé</strong><small>+16 DT</small></span></div></label>
+     <label class="option option-card"><img loading="lazy" src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80" alt="Flacon de parfum"><div class="option-text"><input type="checkbox" name="item" value="Mini parfum" data-price="25"><span><strong>🌸 Mini parfum</strong><small>+25 DT</small></span></div></label>
+     <label class="option option-card"><img loading="lazy" src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80" alt="Sac à main accessoire"><div class="option-text"><input type="checkbox" name="item" value="Accessoire" data-price="14"><span><strong>🎀 Accessoire</strong><small>+14 DT</small></span></div></label>
+     <label class="option option-card"><img loading="lazy" src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=80" alt="Appareil photo et souvenir"><div class="option-text"><input type="checkbox" name="item" value="Photo imprimée" data-price="8"><span><strong>📸 Photo imprimée</strong><small>+8 DT</small></span></div></label>
+     <label class="option option-card"><img loading="lazy" src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&w=600&q=80" alt="Petit objet de décoration"><div class="option-text"><input type="checkbox" name="item" value="Objet déco" data-price="18"><span><strong>🏡 Objet déco</strong><small>+18 DT</small></span></div></label>
+     <label class="option option-card"><img loading="lazy" src="https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=600&q=80" alt="Carnet et papeterie"><div class="option-text"><input type="checkbox" name="item" value="Carnet" data-price="12"><span><strong>📒 Carnet</strong><small>+12 DT</small></span></div></label>
+     <label class="option option-card"><img loading="lazy" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80" alt="Montre élégante"><div class="option-text"><input type="checkbox" name="item" value="Montre" data-price="35"><span><strong>⌚ Montre</strong><small>+35 DT</small></span></div></label>
+     <label class="option option-card"><img loading="lazy" src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=600&q=80" alt="Écouteurs"><div class="option-text"><input type="checkbox" name="item" value="Écouteurs" data-price="30"><span><strong>🎧 Écouteurs</strong><small>+30 DT</small></span></div></label>
+     <label class="option option-card"><img loading="lazy" src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=600&q=80" alt="Carte de vœux"><div class="option-text"><input type="checkbox" name="item" value="Carte de vœux" data-price="5"><span><strong>💌 Carte de vœux</strong><small>+5 DT</small></span></div></label>
+     <label class="option option-card"><img loading="lazy" src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=600&q=80" alt="Petit portefeuille"><div class="option-text"><input type="checkbox" name="item" value="Portefeuille" data-price="24"><span><strong>👛 Portefeuille</strong><small>+24 DT</small></span></div></label>
+     <label class="option option-card"><img loading="lazy" src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80" alt="Lunettes de soleil"><div class="option-text"><input type="checkbox" name="item" value="Lunettes de soleil" data-price="22"><span><strong>🕶️ Lunettes de soleil</strong><small>+22 DT</small></span></div></label>
+     <label class="option option-card"><img loading="lazy" src="https://images.unsplash.com/photo-1455390582262-044cdda07e0b?auto=format&fit=crop&w=600&q=80" alt="Carnet de souvenirs"><div class="option-text"><input type="checkbox" name="item" value="Album souvenirs" data-price="28"><span><strong>📔 Album souvenirs</strong><small>+28 DT</small></span></div></label>
+    </div>
+   </div>
+   <div class="step"><div class="step-title"><span class="num">3</span> Personnalisez les détails</div>
+    <div class="fields">
+     <label class="field"><span>Prénom à ajouter</span><input id="prenom" type="text" maxlength="35" placeholder="Ex. : Amira"></label>
+     <label class="field"><span>Couleur du coffret</span><select id="couleur"><option>Rose pastel</option><option>Blanc élégant</option><option>Rouge passion</option><option>Beige naturel</option><option>Noir chic</option></select></label>
+     <label class="field"><span>Occasion</span><select id="occasion"><option>Anniversaire</option><option>Amour / couple</option><option>Réussite / diplôme</option><option>Fête des mères</option><option>Remerciement</option><option>Sans occasion particulière</option><option>Autre</option></select></label>
+     <label class="field"><span>Budget souhaité</span><select id="budget"><option>Flexible</option><option>Moins de 50 DT</option><option>50 à 100 DT</option><option>100 à 150 DT</option><option>Plus de 150 DT</option></select></label>
+     <label class="field full"><span>Votre message personnalisé</span><textarea id="message" rows="3" maxlength="220" placeholder="Écrivez le petit mot à glisser dans le coffret..."></textarea></label>
+    </div>
+   </div>
+   <button class="btn" type="submit">Ajouter mon coffret au panier</button>
+   <p class="small">Les prix affichés sont indicatifs et peuvent être adaptés par votre boutique.</p>
+  </form>
+  <aside class="panel summary">
+   <img class="preview" src="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=900&q=85" alt="Coffret cadeau joliment emballé">
+   <h2>Le récapitulatif</h2><p class="muted">Votre création en temps réel</p>
+   <div class="summary-row"><span>Type de coffret</span><strong id="s-boite">Petit coffret</strong></div>
+   <div class="summary-row"><span>Surprises choisies</span><strong id="s-items">Aucune</strong></div>
+   <div class="summary-row"><span>Prénom</span><strong id="s-prenom">Non précisé</strong></div>
+   <div class="summary-row"><span>Couleur</span><strong id="s-couleur">Rose pastel</strong></div>
+   <div class="summary-row"><span>Occasion</span><strong id="s-occasion">Anniversaire</strong></div>
+   <div class="summary-row total"><span>Total estimé</span><strong id="total">25 DT</strong></div>
+   <button class="btn light" type="button" onclick="copierRecap()">Copier le récapitulatif</button>
+   <div id="status" class="status" role="status"></div>
+  </aside>
+ </div>
+</div></section>
+<section style="background:#f8e6eb"><div class="wrap"><div class="heading"><h2>Quelques idées de coffrets</h2><p>Inspirez-vous de ces ambiances pour composer le vôtre.</p></div>
+ <div class="gallery">
+  <article><img loading="lazy" src="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=700&q=80" alt="Coffret cadeau rose"><div><h3>Douceur & tendresse</h3><p>Une boîte délicate avec un mot doux et de petites surprises.</p></div></article>
+  <article><img loading="lazy" src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=700&q=80" alt="Cadeau emballé avec ruban"><div><h3>Joyeux anniversaire</h3><p>Une attention festive pour célébrer une journée spéciale.</p></div></article>
+  <article><img loading="lazy" src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=700&q=80" alt="Amis célébrant ensemble"><div><h3>Souvenir entre amis</h3><p>Des objets choisis selon les goûts de la personne.</p></div></article>
+ </div>
+</div></section>
+</main>
+<footer><div class="wrap"><p class="logo" style="color:#fff">Memora<span>♥</span></p><p>Des cadeaux qui racontent une histoire</p><div class="links"><a href="index.html">Accueil</a><a href="produits.html">Produits</a><a href="produit-vedette.html">Coffret personnalisé</a><a href="a-propos.html">À propos</a><a href="contact.html">Contact</a></div><p class="smallfoot">© 2026 Memora – Projet étudiant. Prix d'exemple à adapter.</p></div></footer>
+<script>
+let panier=JSON.parse(localStorage.getItem("memoraPanier")||"[]");
+function prixBase(){return Number(document.querySelector('input[name="boite"]:checked').dataset.price)}
+function selection(){return [...document.querySelectorAll('input[name="item"]:checked')].map(e=>({nom:e.value,prix:Number(e.dataset.price)}))}
+function calcul(){return prixBase()+selection().reduce((s,x)=>s+x.prix,0)}
+function format(n){return n.toLocaleString("fr-FR")+" DT"}
+function recap(){let b=document.querySelector('input[name="boite"]:checked').value,items=selection();document.getElementById("s-boite").textContent=b;document.getElementById("s-items").textContent=items.length?items.map(x=>x.nom).join(", "):"Aucune";document.getElementById("s-prenom").textContent=document.getElementById("prenom").value.trim()||"Non précisé";document.getElementById("s-couleur").textContent=document.getElementById("couleur").value;document.getElementById("s-occasion").textContent=document.getElementById("occasion").value;document.getElementById("total").textContent=format(calcul())}
+document.querySelectorAll('#form-coffret input,#form-coffret select,#form-coffret textarea').forEach(e=>e.addEventListener('input',recap));document.querySelectorAll('#form-coffret input[type="radio"],#form-coffret input[type="checkbox"]').forEach(e=>e.addEventListener('change',recap));
+function afficherCount(){document.getElementById("count").textContent=panier.length}
+document.getElementById("form-coffret").addEventListener("submit",e=>{e.preventDefault();let p={type:"Coffret personnalisé",boite:document.querySelector('input[name="boite"]:checked').value,items:selection().map(x=>x.nom),prenom:document.getElementById("prenom").value.trim(),couleur:document.getElementById("couleur").value,occasion:document.getElementById("occasion").value,budget:document.getElementById("budget").value,message:document.getElementById("message").value.trim(),prix:calcul()};panier.push(p);localStorage.setItem("memoraPanier",JSON.stringify(panier));afficherCount();let s=document.getElementById("status");s.style.display="block";s.textContent="Votre coffret a été ajouté au panier ! Total estimé : "+format(p.prix)+". Les articles restent enregistrés dans ce navigateur.";});
+function voirPanier(){if(!panier.length){alert("Votre panier est vide.");return}alert("Votre panier Memora :\n"+panier.map((p,i)=>(i+1)+". "+(p.type||p.nom)+" — "+format(p.prix)+(p.boite?" ("+p.boite+")":"")).join("\n")+"\n\nTotal : "+format(panier.reduce((s,p)=>s+Number(p.prix||0),0))+"\n\nPour finaliser votre commande, contactez Memora depuis la page Contact.")}
+function copierRecap(){const txt="Mon coffret Memora\nType : "+document.getElementById("s-boite").textContent+"\nSurprises : "+document.getElementById("s-items").textContent+"\nPrénom : "+document.getElementById("s-prenom").textContent+"\nCouleur : "+document.getElementById("s-couleur").textContent+"\nOccasion : "+document.getElementById("s-occasion").textContent+"\nMessage : "+(document.getElementById("message").value||"Aucun")+"\nTotal estimé : "+document.getElementById("total").textContent;navigator.clipboard?.writeText(txt).then(()=>{let s=document.getElementById("status");s.style.display="block";s.textContent="Récapitulatif copié !"}).catch(()=>alert(txt))||alert(txt)}
+recap();afficherCount();
+</script>
+</body>
+</html>

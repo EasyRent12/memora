@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Créer un compte | Memora</title>
+  <meta name="description" content="Crée un compte de démonstration Memora pour tester la commande.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- En-tête et menu principal (identique sur toutes les pages) -->
+  <header>
+    <div class="conteneur barre">
+      <a class="logo" href="index.html">Memora<span>♥</span></a>
+      <button class="bouton-menu" id="bouton-menu" aria-label="Ouvrir le menu">☰</button>
+      <nav>
+        <ul id="menu">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="produits.html">Produits</a>
+            <ul class="sous-menu">
+              <li><a href="coffrets.html">Coffrets cadeaux</a></li>
+              <li><a href="robes.html">Robes</a></li>
+              <li><a href="accessoires.html">Accessoires</a></li>
+            </ul>
+          </li>
+          <li><a href="produit-vedette.html">Coffret personnalisé</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="connexion.html" class="actif" id="lien-compte">👤 Compte</a></li>
+          <li><a href="panier.html">🛒 Panier <span class="compteur" id="compteur-panier">0</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="conteneur">
+        <div class="carte carte-formulaire">
+          <h1 style="font-size:1.8rem;">Créer mon compte</h1>
+          <div class="avertissement"><strong>Démonstration uniquement.</strong> Ce compte est simulé et conservé dans ton navigateur. Utilise un mot de passe <strong>fictif</strong> (ex. demo1234), jamais un vrai. Ce n'est pas une authentification sécurisée.</div>
+          <form id="formulaire-inscription" novalidate>
+            <div class="deux-champs">
+              <div><label for="ins-prenom">Prénom</label><input type="text" id="ins-prenom" autocomplete="given-name"></div>
+              <div><label for="ins-nom">Nom</label><input type="text" id="ins-nom" autocomplete="family-name"></div>
+            </div>
+            <label for="ins-email">Adresse e-mail</label>
+            <input type="email" id="ins-email" autocomplete="email" placeholder="exemple@mail.com">
+            <label for="ins-mdp">Mot de passe fictif (6 caractères minimum)</label>
+            <input type="password" id="ins-mdp" autocomplete="new-password">
+            <label for="ins-mdp2">Confirmer le mot de passe</label>
+            <input type="password" id="ins-mdp2" autocomplete="new-password">
+            <label style="font-weight:500;"><input type="checkbox" id="ins-cgu" style="width:auto;"> J'ai compris que ce site est une démonstration (aucun paiement réel, données gardées dans ce navigateur).</label>
+            <div class="message-erreur" id="erreurs-inscription" role="alert"></div>
+            <p><button type="submit" class="bouton">Créer mon compte</button></p>
+          </form>
+          <p>Déjà inscrit ? <a href="connexion.html">Se connecter</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pied de page -->
+  <footer>
+    <div class="conteneur">
+      <p class="logo" style="color:#fff;">Memora</p>
+      <p>Des cadeaux qui racontent une histoire</p>
+      <div class="liens">
+        <a href="index.html">Accueil</a>
+        <a href="produits.html">Produits</a>
+        <a href="produit-vedette.html">Coffret personnalisé</a>
+        <a href="a-propos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p class="petit">© 2026 Memora – Projet étudiant. Site de démonstration : aucun paiement réel.</p>
+    </div>
+  </footer>
+
+  <button id="haut" aria-label="Retour en haut">↑</button>
+  <script src="donnees.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+</body>
+</html>

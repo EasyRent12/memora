@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos – Memora</title>
+  <meta name="description" content="Découvrez Memora, boutique en ligne de cadeaux personnalisés, de robes et d'accessoires.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- En-tête et menu principal -->
+  <header>
+    <div class="conteneur barre">
+      <a class="logo" href="index.html">Memora<span>♥</span></a>
+      <button class="bouton-menu" id="bouton-menu" aria-label="Ouvrir le menu">☰</button>
+      <nav>
+        <ul id="menu">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="produits.html">Produits</a>
+            <ul class="sous-menu">
+              <li><a href="coffrets.html">Coffrets cadeaux</a></li>
+              <li><a href="robes.html">Robes</a></li>
+              <li><a href="accessoires.html">Accessoires</a></li>
+            </ul>
+          </li>
+          <li><a href="produit-vedette.html">Coffret personnalisé</a></li>
+          <li><a href="a-propos.html" class="actif">À propos</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="connexion.html" id="lien-compte">👤 Compte</a></li>
+          <li><a href="panier.html">🛒 Panier <span class="compteur" id="compteur-panier">0</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="conteneur" style="max-width:800px;">
+        <h1>À propos de Memora</h1>
+        <p>Memora est une boutique en ligne imaginée pour proposer des cadeaux personnalisés, des robes et des accessoires. L'idée est de réunir dans un même espace des produits qui permettent de faire plaisir, de célébrer une occasion ou de créer un souvenir unique.</p>
+        <p>La boutique souhaite offrir une expérience simple et agréable : découvrir les collections, choisir un article, personnaliser certains cadeaux et préparer une commande.</p>
+        <p class="slogan">« Chaque cadeau raconte une histoire »</p>
+      </div>
+    </section>
+
+    <section class="fond-rose">
+      <div class="conteneur">
+        <div class="titre-section"><h2>Notre mission et nos valeurs</h2></div>
+        <div class="grille">
+          <div class="carte"><div class="icone">💝</div><h3>L'émotion</h3><p>Un cadeau est une attention et un souvenir, pas seulement un objet.</p></div>
+          <div class="carte"><div class="icone">✨</div><h3>L'originalité</h3><p>Des cadeaux originaux, uniques et personnels.</p></div>
+          <div class="carte"><div class="icone">🤝</div><h3>Le conseil</h3><p>Une assistance personnalisée selon la personne, l'occasion et le budget.</p></div>
+          <div class="carte"><div class="icone">🎀</div><h3>La simplicité</h3><p>Un parcours de commande simple et rapide, avec des prix accessibles.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="conteneur">
+        <div class="titre-section"><h2>Comment travaille Memora</h2></div>
+        <div class="grille">
+          <div class="carte">
+            <h3>Nos activités</h3>
+            <p>Gérer une plateforme en ligne simple, proposer des cadeaux adaptés à chaque occasion et à chaque budget, gérer les commandes personnalisées et promouvoir Memora sur les réseaux sociaux.</p>
+          </div>
+          <div class="carte">
+            <h3>Nos partenaires</h3>
+            <p>Des fournisseurs de cadeaux et d'articles de décoration, des créateurs et artisans spécialisés, et des services de livraison. À l'avenir, des vendeurs et créateurs indépendants pourront rejoindre la plateforme.</p>
+          </div>
+          <div class="carte">
+            <h3>Notre relation avec vous</h3>
+            <p>Conseils personnalisés, échanges rapides via WhatsApp, Instagram et les réseaux sociaux, suivi de commande jusqu'à la livraison, offres exclusives et surprises.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fond-rose">
+      <div class="conteneur" style="max-width:800px; text-align:center;">
+        <h2>Un projet réalisable, ensemble vers le succès !</h2>
+        <p>Memora s'appuie sur les technologies web et les réseaux sociaux pour présenter ses produits, avec des produits originaux, des prix adaptés et une bonne qualité.</p>
+        <p class="petit">Projet réalisé par : Dhifallah Yassmine, El Guich Yumna, Chouk Ons, Dhifet Ranim, El Haddad Nour, Douzi Nour.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pied de page -->
+  <footer>
+    <div class="conteneur">
+      <p class="logo" style="color:#fff;">Memora</p>
+      <p>Des cadeaux qui racontent une histoire</p>
+      <div class="liens">
+        <a href="index.html">Accueil</a>
+        <a href="produits.html">Produits</a>
+        <a href="produit-vedette.html">Coffret personnalisé</a>
+        <a href="a-propos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p class="petit">© 2026 Memora – Projet étudiant</p>
+    </div>
+  </footer>
+
+  <button id="haut" aria-label="Retour en haut">↑</button>
+  <script src="donnees.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

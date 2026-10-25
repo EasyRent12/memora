@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nos produits – Memora</title>
+<meta name="description" content="Découvrez les cadeaux personnalisés, bijoux, accessoires, décoration et coffrets cadeaux Memora.">
+<style>
+:root{--rose:#f8e6eb;--rose-fonce:#c85c7a;--texte:#30252a;--blanc:#fff;--fond:#fffafb;--ombre:0 8px 25px #5c26300f}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--texte);background:var(--fond);line-height:1.6}
+a{color:inherit;text-decoration:none}.conteneur{width:min(1180px,92%);margin:auto}
+header{background:#fff;position:sticky;top:0;z-index:10;box-shadow:0 2px 14px #0000000c}.barre{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.logo{font-size:1.9rem;font-weight:800;color:#39252c}.logo span{color:var(--rose-fonce)}nav ul{display:flex;gap:24px;list-style:none;margin:0;padding:0;flex-wrap:wrap}nav a:hover,nav a.actif{color:var(--rose-fonce)}.panier-top{border:0;border-radius:24px;background:var(--rose);padding:10px 16px;font-weight:bold;cursor:pointer}
+.hero{background:linear-gradient(100deg,#fff0f4eF,#fff0f466),url('https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=1800&q=85') center/cover;padding:75px 0;text-align:center}
+.hero h1{font-size:clamp(2.2rem,5vw,3.6rem);margin:0 0 10px}.hero p{max-width:680px;margin:0 auto 24px;font-size:1.08rem}.bouton{display:inline-block;background:var(--rose-fonce);color:#fff;border:0;border-radius:28px;padding:12px 22px;font-weight:bold;cursor:pointer}.bouton:hover{filter:brightness(.95)}
+section{padding:45px 0}.titre{text-align:center;margin-bottom:26px}.titre h2{font-size:2rem;margin:0 0 7px}.titre p{margin:0;color:#796970}
+.categories{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:25px 0 32px}.cat-btn{background:#fff;border:1px solid #eed6de;border-radius:25px;padding:10px 16px;cursor:pointer;color:var(--texte)}.cat-btn.active,.cat-btn:hover{background:var(--rose-fonce);border-color:var(--rose-fonce);color:white}
+.barre-recherche{display:flex;gap:10px;max-width:650px;margin:0 auto 22px}.barre-recherche input{width:100%;padding:13px 16px;border:1px solid #e8d5dc;border-radius:24px;font-size:1rem;outline-color:var(--rose-fonce)}
+.grille{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}.produit{background:#fff;border-radius:17px;overflow:hidden;box-shadow:var(--ombre);display:flex;flex-direction:column;transition:transform .2s}.produit:hover{transform:translateY(-4px)}.produit img{width:100%;height:220px;object-fit:cover;background:var(--rose)}.info{padding:16px;display:flex;flex-direction:column;flex:1}.tag{font-size:.76rem;color:var(--rose-fonce);font-weight:bold;text-transform:uppercase;letter-spacing:.05em}.info h3{margin:5px 0;font-size:1.08rem}.info p{font-size:.9rem;color:#75656b;margin:0 0 12px;flex:1}.bas-produit{display:flex;align-items:center;justify-content:space-between;gap:8px}.prix{font-weight:800;font-size:1.08rem}.ajouter{background:#f8e6eb;color:#8d3652;border:0;border-radius:20px;padding:9px 12px;font-weight:bold;cursor:pointer}.ajouter:hover{background:#f0ced9}.aucun{grid-column:1/-1;text-align:center;padding:35px;background:#fff;border-radius:15px}
+.bandeau{background:var(--rose);text-align:center;padding:32px 18px}.bandeau h2{margin:0 0 8px}footer{background:#30252a;color:#fff;text-align:center;padding:30px 0;margin-top:35px}footer .liens{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:14px 0}.petit{font-size:.85rem;opacity:.8}
+#notification{position:fixed;right:20px;bottom:20px;background:#30252a;color:white;padding:13px 18px;border-radius:12px;box-shadow:var(--ombre);display:none;z-index:20}
+@media(max-width:900px){.grille{grid-template-columns:repeat(2,minmax(0,1fr))}.barre{padding:12px 0;flex-wrap:wrap}nav{width:100%}nav ul{gap:14px}}
+@media(max-width:520px){.grille{grid-template-columns:1fr}.produit img{height:250px}.hero{padding:55px 0}.bas-produit{align-items:flex-start;flex-direction:column}.barre-recherche{flex-direction:column}}
+</style>
+</head>
+<body>
+<header>
+ <div class="conteneur barre">
+  <a class="logo" href="index.html">Memora<span>♥</span></a>
+  <nav aria-label="Navigation principale"><ul>
+   <li><a href="index.html">Accueil</a></li><li><a class="actif" href="produits.html">Produits</a></li>
+   <li><a href="produit-vedette.html">Coffret personnalisé</a></li><li><a href="a-propos.html">À propos</a></li><li><a href="contact.html">Contact</a></li>
+  </ul></nav>
+  <button class="panier-top" onclick="voirPanier()">🛒 Panier (<span id="compteur">0</span>)</button>
+ </div>
+</header>
+<main>
+ <section class="hero"><div class="conteneur">
+  <h1>Découvrez l'univers Memora</h1>
+  <p>Des cadeaux qui font plaisir, des petites attentions aux grandes surprises. Trouvez l'idée parfaite pour chaque personne et chaque occasion.</p>
+  <a class="bouton" href="#catalogue">Explorer les produits</a>
+ </div></section>
+ <section id="catalogue"><div class="conteneur">
+  <div class="titre"><h2>Notre catalogue</h2><p>Un large choix pour faire plaisir à tous les budgets.</p></div>
+  <div class="barre-recherche"><input id="recherche" type="search" placeholder="🔎 Rechercher un produit..." aria-label="Rechercher un produit"></div>
+  <div class="categories" id="categories">
+   <button class="cat-btn active" data-cat="Tous">✨ Tout voir</button>
+   <button class="cat-btn" data-cat="Coffrets">🎁 Coffrets cadeaux</button>
+   <button class="cat-btn" data-cat="Bijoux">💍 Bijoux</button>
+   <button class="cat-btn" data-cat="Accessoires">👜 Accessoires</button>
+   <button class="cat-btn" data-cat="Maison">🏡 Maison & décoration</button>
+   <button class="cat-btn" data-cat="Mode">👗 Mode</button>
+   <button class="cat-btn" data-cat="Photo">📸 Souvenirs photo</button>
+   <button class="cat-btn" data-cat="Papeterie">💌 Papeterie</button>
+   <button class="cat-btn" data-cat="Tech">🎧 Tech & gadgets</button>
+   <button class="cat-btn" data-cat="Enfants">🧸 Enfants</button>
+  </div>
+  <div class="grille" id="grille-produits" aria-live="polite"></div>
+ </div></section>
+ <section class="bandeau"><div class="conteneur"><h2>Un cadeau encore plus personnel ?</h2><p>Ajoutez un prénom, une date ou un petit message à votre idée cadeau.</p><a class="bouton" href="contact.html">Parlons de votre idée</a></div></section>
+</main>
+<footer><div class="conteneur"><p class="logo" style="color:#fff">Memora<span>♥</span></p><p>Des cadeaux qui racontent une histoire</p><div class="liens"><a href="index.html">Accueil</a><a href="produits.html">Produits</a><a href="produit-vedette.html">Coffret personnalisé</a><a href="a-propos.html">À propos</a><a href="contact.html">Contact</a></div><p class="petit">© 2026 Memora – Projet étudiant</p><p class="petit">Photos illustratives provenant d'Unsplash. Prix d'exemple à adapter à votre boutique.</p></div></footer>
+<div id="notification" role="status"></div>
+<script>
+const produits = [
+ {n:"Coffret cadeau douceur",c:"Coffrets",p:79,img:"photo-1513201099705-a9746e1e201f",d:"Un assortiment élégant pour une belle surprise."},
+ {n:"Coffret anniversaire",c:"Coffrets",p:89,img:"photo-1549465220-1a8b9238cd48",d:"Une boîte cadeau festive à personnaliser."},
+ {n:"Collier minimaliste",c:"Bijoux",p:45,img:"photo-1599643478518-a784e5dc4c8f",d:"Un bijou délicat pour une attention spéciale."},
+ {n:"Boucles d'oreilles",c:"Bijoux",p:35,img:"photo-1535632066927-ab7c9ab60908",d:"Une touche élégante pour tous les jours."},
+ {n:"Sac à main chic",c:"Accessoires",p:95,img:"photo-1584917865442-de89df76afd3",d:"Un accessoire pratique et tendance."},
+ {n:"Lunettes de soleil",c:"Accessoires",p:39,img:"photo-1511499767150-a48a237f0083",d:"Un accessoire pour les journées ensoleillées."},
+ {n:"Bougie parfumée",c:"Maison",p:28,img:"photo-1603006905003-be475563bc59",d:"Une ambiance chaleureuse pour la maison."},
+ {n:"Vase décoratif",c:"Maison",p:42,img:"photo-1578500494198-246f612d3b3d",d:"Une décoration simple et élégante."},
+ {n:"Robe élégante",c:"Mode",p:120,img:"photo-1539008835657-9e8e9680c956",d:"Une tenue pour une occasion spéciale."},
+ {n:"Sac cadeau en tissu",c:"Mode",p:25,img:"photo-1590874103328-eac38a683ce7",d:"Un accessoire réutilisable et pratique."},
+ {n:"Cadre photo souvenir",c:"Photo",p:32,img:"photo-1516035069371-29a1b244cc32",d:"Gardez vos meilleurs souvenirs près de vous."},
+ {n:"Album photo",c:"Photo",p:49,img:"photo-1455390582262-044cdda07e0b",d:"Rassemblez les moments qui comptent."},
+ {n:"Carte personnalisée",c:"Papeterie",p:12,img:"photo-1512314889357-e157c22f938d",d:"Un petit mot qui rend le cadeau unique."},
+ {n:"Carnet élégant",c:"Papeterie",p:22,img:"photo-1531346878377-a5be20888e57",d:"Pour noter idées, rêves et souvenirs."},
+ {n:"Écouteurs sans fil",c:"Tech",p:69,img:"photo-1606220945770-b5b6c2c55bf1",d:"Un compagnon pour écouter sa musique."},
+ {n:"Montre connectée",c:"Tech",p:139,img:"photo-1523275335684-37898b6baf30",d:"Un gadget pratique au quotidien."},
+ {n:"Peluche toute douce",c:"Enfants",p:29,img:"photo-1559454403-b8fb88521f11",d:"Un compagnon mignon à offrir aux enfants."},
+ {n:"Jeu de construction",c:"Enfants",p:55,img:"photo- Lego-placeholder",d:"Un cadeau amusant pour stimuler la créativité."}
+];
+// Remplacer automatiquement les images par des photos Unsplash adaptées.
+// Le dernier article utilise une image de jouets pour éviter une URL invalide.
+produits[17].img="photo-1587654780291-39c9404d746b";
+let categorie="Tous", panier=[];
+const formatPrix=n=>n.toLocaleString("fr-FR")+" DT";
+function afficher(){
+ const q=document.getElementById("recherche").value.toLocaleLowerCase("fr");
+ const liste=produits.filter(x=>(categorie==="Tous"||x.c===categorie)&&(x.n+" "+x.c+" "+x.d).toLocaleLowerCase("fr").includes(q));
+ const grille=document.getElementById("grille-produits");
+ if(!liste.length){grille.innerHTML='<div class="aucun">Aucun produit trouvé. Essayez une autre recherche ou catégorie.</div>';return}
+ grille.innerHTML=liste.map(x=>`<article class="produit"><img loading="lazy" src="https://images.unsplash.com/${x.img}?auto=format&fit=crop&w=700&q=80" alt="${x.n}" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=700&q=80'"><div class="info"><span class="tag">${x.c}</span><h3>${x.n}</h3><p>${x.d}</p><div class="bas-produit"><span class="prix">${formatPrix(x.p)}</span><button class="ajouter" onclick="ajouter('${x.n.replace(/'/g,"\\'")}',${x.p})">＋ Ajouter</button></div></div></article>`).join("");
+}
+document.querySelectorAll(".cat-btn").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".cat-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");categorie=b.dataset.cat;afficher()}));
+document.getElementById("recherche").addEventListener("input",afficher);
+function ajouter(n,p){panier.push({n,p});document.getElementById("compteur").textContent=panier.length;notifier(n+" ajouté au panier !")}
+function voirPanier(){if(!panier.length){notifier("Votre panier est vide pour le moment.");return}const total=panier.reduce((s,x)=>s+x.p,0);alert("Votre panier :\n"+panier.map(x=>"• "+x.n+" — "+formatPrix(x.p)).join("\n")+"\n\nTotal : "+formatPrix(total)+"\n\nPour commander, contactez-nous depuis la page Contact.");}
+function notifier(t){const n=document.getElementById("notification");n.textContent=t;n.style.display="block";clearTimeout(window.timerNotif);window.timerNotif=setTimeout(()=>n.style.display="none",2400)}
+afficher();
+</script>
+</body></html>

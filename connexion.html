@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion | Memora</title>
+  <meta name="description" content="Connecte-toi à ton compte de démonstration Memora pour commander.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- En-tête et menu principal (identique sur toutes les pages) -->
+  <header>
+    <div class="conteneur barre">
+      <a class="logo" href="index.html">Memora<span>♥</span></a>
+      <button class="bouton-menu" id="bouton-menu" aria-label="Ouvrir le menu">☰</button>
+      <nav>
+        <ul id="menu">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="produits.html">Produits</a>
+            <ul class="sous-menu">
+              <li><a href="coffrets.html">Coffrets cadeaux</a></li>
+              <li><a href="robes.html">Robes</a></li>
+              <li><a href="accessoires.html">Accessoires</a></li>
+            </ul>
+          </li>
+          <li><a href="produit-vedette.html">Coffret personnalisé</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="connexion.html" class="actif" id="lien-compte">👤 Compte</a></li>
+          <li><a href="panier.html">🛒 Panier <span class="compteur" id="compteur-panier">0</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="conteneur">
+        <div class="carte carte-formulaire">
+          <h1 style="font-size:1.8rem;">Connexion</h1>
+          <div class="avertissement"><strong>Démonstration uniquement.</strong> Ce compte est simulé et conservé dans ton navigateur. Utilise un mot de passe <strong>fictif</strong> (ex. demo1234), jamais un vrai. Ce n'est pas une authentification sécurisée.</div>
+          <div class="message-ok" id="message-verifie" role="status">Ton compte est vérifié (simulation). Tu peux te connecter.</div>
+          <form id="formulaire-connexion" novalidate>
+            <label for="con-email">Adresse e-mail</label>
+            <input type="email" id="con-email" autocomplete="email">
+            <label for="con-mdp">Mot de passe de démonstration</label>
+            <input type="password" id="con-mdp" autocomplete="current-password">
+            <div class="message-erreur" id="erreurs-connexion" role="alert"></div>
+            <p><a href="verification.html" id="lien-verification" style="display:none;">Aller à la vérification</a></p>
+            <p><button type="submit" class="bouton">Se connecter</button></p>
+          </form>
+          <p><a href="inscription.html">Créer un compte</a> · <a href="#" id="lien-oubli">Mot de passe oublié</a></p>
+          <div class="avertissement" id="message-oubli" style="display:none;">Cette fonction n'est pas disponible dans le prototype.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pied de page -->
+  <footer>
+    <div class="conteneur">
+      <p class="logo" style="color:#fff;">Memora</p>
+      <p>Des cadeaux qui racontent une histoire</p>
+      <div class="liens">
+        <a href="index.html">Accueil</a>
+        <a href="produits.html">Produits</a>
+        <a href="produit-vedette.html">Coffret personnalisé</a>
+        <a href="a-propos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p class="petit">© 2026 Memora – Projet étudiant. Site de démonstration : aucun paiement réel.</p>
+    </div>
+  </footer>
+
+  <button id="haut" aria-label="Retour en haut">↑</button>
+  <script src="donnees.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

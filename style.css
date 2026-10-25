@@ -1,0 +1,586 @@
+/* ==========================================================
+   STYLE DU SITE MEMORA
+   Ce fichier gère l'APPARENCE : couleurs, tailles, espaces.
+   ========================================================== */
+
+/* ---------- Couleurs du site (modifiables ici) ----------
+   Pour changer une couleur, modifie la valeur après les deux-points. */
+:root {
+  --rose-fond: #fff3f6;      /* fond général, rose très pâle */
+  --rose-clair: #fde0e8;     /* fonds de sections */
+  --rose: #e8789a;           /* rose principal (boutons secondaires) */
+  --bordeaux: #a8305c;       /* couleur du logo Memora, titres, boutons */
+  --bordeaux-fonce: #7d2145; /* survol des boutons */
+  --or: #c9a24b;             /* touches dorées (accent) */
+  --texte: #4a2a37;          /* couleur du texte */
+  --blanc: #ffffff;
+  --ombre: 0 6px 18px rgba(168, 48, 92, 0.12);
+  --rayon: 16px;             /* arrondi des cartes */
+}
+
+/* ---------- Réglages de base ---------- */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--texte);
+  background: var(--rose-fond);
+  line-height: 1.6;
+}
+
+img { max-width: 100%; height: auto; }
+
+a { color: var(--bordeaux); }
+
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--bordeaux);
+  line-height: 1.25;
+  margin-top: 0;
+}
+
+/* Conteneur : centre le contenu et limite sa largeur */
+.conteneur {
+  width: 92%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Une section = un bloc de la page, avec des espaces réguliers */
+section { padding: 56px 0; }
+.fond-rose { background: var(--rose-clair); }
+
+.titre-section { text-align: center; margin-bottom: 32px; }
+.titre-section p { max-width: 640px; margin: 8px auto 0; }
+
+/* ---------- En-tête et menu ---------- */
+header {
+  background: var(--blanc);
+  border-bottom: 3px solid var(--or);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.barre {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+
+/* Logo écrit en lettres (pas d'image de logo disponible) */
+.logo {
+  font-family: "Segoe Script", "Brush Script MT", cursive;
+  font-size: 2rem;
+  color: var(--bordeaux);
+  text-decoration: none;
+}
+.logo span { color: var(--or); }
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+}
+nav a {
+  display: block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+}
+nav a:hover,
+nav a.actif {            /* "actif" = page où l'on se trouve */
+  background: var(--bordeaux);
+  color: var(--blanc);
+}
+
+/* Bouton du menu mobile (caché sur ordinateur) */
+.bouton-menu {
+  display: none;
+  background: var(--bordeaux);
+  color: var(--blanc);
+  border: 0;
+  border-radius: 8px;
+  font-size: 1.4rem;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+/* ---------- Boutons ---------- */
+.bouton {
+  display: inline-block;
+  background: var(--bordeaux);
+  color: var(--blanc);
+  padding: 12px 26px;
+  border-radius: 999px;
+  border: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.bouton:hover { background: var(--bordeaux-fonce); }
+.bouton.clair { background: var(--blanc); color: var(--bordeaux); border: 2px solid var(--bordeaux); }
+.bouton.clair:hover { background: var(--rose-clair); }
+
+/* ---------- Section principale de l'accueil ---------- */
+.hero {
+  text-align: center;
+  padding: 80px 0;
+  background: linear-gradient(135deg, var(--rose-clair), var(--rose-fond));
+}
+.hero h1 { font-size: 2.6rem; margin-bottom: 8px; }
+.slogan {
+  font-family: "Segoe Script", "Brush Script MT", cursive;
+  font-size: 1.5rem;
+  color: var(--or);
+  margin: 0 0 16px;
+}
+.hero p { max-width: 620px; margin: 0 auto 24px; font-size: 1.1rem; }
+.hero .bouton { margin: 4px; }
+
+/* ---------- Cartes (valeurs, produits, contacts...) ---------- */
+.grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+.carte {
+  background: var(--blanc);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+  overflow: hidden;
+  padding: 22px;
+}
+.carte h3 { margin-bottom: 8px; }
+
+/* Cartes produits : un grand symbole en haut à la place d'une photo */
+.carte-produit { padding: 0; display: flex; flex-direction: column; }
+.carte-produit .visuel {
+  background: var(--rose-clair);
+  font-size: 4rem;
+  text-align: center;
+  padding: 28px 0;
+}
+.carte-produit .contenu { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+.carte-produit .contenu p { flex: 1; }
+.etiquette {
+  display: inline-block;
+  background: var(--rose-clair);
+  color: var(--bordeaux);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+.prix { color: var(--or); font-weight: 700; }
+
+/* Icône ronde dans les cartes de l'accueil */
+.icone {
+  font-size: 2rem;
+  width: 56px; height: 56px;
+  background: var(--rose-clair);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 12px;
+}
+
+/* ---------- Filtres de la page produits ---------- */
+.filtres { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 28px; }
+.filtre {
+  background: var(--blanc);
+  border: 2px solid var(--bordeaux);
+  color: var(--bordeaux);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.filtre.actif, .filtre:hover { background: var(--bordeaux); color: var(--blanc); }
+
+/* ---------- Bloc "appel à l'action" ---------- */
+.appel {
+  text-align: center;
+  background: var(--bordeaux);
+  color: var(--blanc);
+}
+.appel h2 { color: var(--blanc); }
+.appel .bouton { background: var(--blanc); color: var(--bordeaux); }
+.appel .bouton:hover { background: var(--rose-clair); }
+
+/* ---------- Page produit vedette ---------- */
+.detail { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; }
+.detail .grand-visuel {
+  background: var(--rose-clair);
+  border-radius: var(--rayon);
+  font-size: 8rem;
+  text-align: center;
+  padding: 50px 0;
+  box-shadow: var(--ombre);
+}
+.liste-coeurs { list-style: none; padding: 0; }
+.liste-coeurs li::before { content: "♥ "; color: var(--rose); }
+.liste-coeurs li { margin-bottom: 6px; }
+
+/* Bouton afficher / masquer */
+.reponse { display: none; background: var(--blanc); padding: 16px; border-radius: 12px; margin-top: 10px; }
+.reponse.visible { display: block; }
+
+/* ---------- Formulaire ---------- */
+form label { display: block; font-weight: 600; margin: 14px 0 4px; }
+form input, form select, form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid var(--rose-clair);
+  border-radius: 10px;
+  font: inherit;
+}
+form input:focus, form textarea:focus, form select:focus { outline: none; border-color: var(--bordeaux); }
+.message-ok, .message-erreur { padding: 12px; border-radius: 10px; margin-top: 14px; display: none; }
+.message-ok { background: #e6f6ea; color: #1f6b34; }
+.message-erreur { background: #fde6e6; color: #9b1c1c; }
+
+/* ---------- Pied de page ---------- */
+footer {
+  background: var(--texte);
+  color: #f3dbe3;
+  padding: 36px 0 20px;
+  text-align: center;
+}
+footer a { color: #f3dbe3; }
+footer .liens { margin: 10px 0; }
+footer .liens a { margin: 0 10px; }
+.petit { font-size: 0.85rem; opacity: 0.8; }
+
+/* ---------- Photos des produits ---------- */
+.visuel.avec-photo { padding: 0; font-size: 0; background: var(--blanc); }
+.visuel img.principale {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;   /* la photo remplit le cadre sans être déformée */
+  display: block;
+}
+.miniatures { display: flex; gap: 6px; padding: 8px; justify-content: center; background: var(--blanc); }
+.miniatures img {
+  width: 56px; height: 56px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.miniatures img.choisie { border-color: var(--bordeaux); }
+
+/* ---------- Page produits : bandeau et grandes rangées ---------- */
+.bandeau-produits {
+  text-align: center;
+  padding: 56px 0 40px;
+  background: linear-gradient(135deg, var(--rose-clair), #fff 70%);
+}
+.bandeau-produits h1 { font-size: 2.4rem; margin-bottom: 6px; }
+
+.rangee {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--blanc);
+  border-radius: 24px;
+  box-shadow: var(--ombre);
+  overflow: hidden;
+  margin-bottom: 34px;
+}
+.rangee.inverse .visuel { order: 2; }       /* alterne image à droite / à gauche */
+
+.rangee .visuel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 340px;
+  padding: 24px;
+}
+.ton-rose { background: radial-gradient(circle at 30% 20%, #fff 0%, var(--rose-clair) 70%); }
+.ton-or   { background: radial-gradient(circle at 70% 20%, #fff8e6 0%, #f6e6c0 75%); }
+.illu { width: 70%; max-width: 280px; filter: drop-shadow(0 10px 14px rgba(125, 33, 69, 0.25)); }
+
+.rangee .visuel.avec-photo { padding: 0; align-items: stretch; justify-content: flex-start; }
+.rangee .visuel img.principale { height: 100%; min-height: 340px; flex: 1; }
+
+.texte-rangee { padding: 36px 34px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+.texte-rangee h2 { font-size: 1.8rem; margin-bottom: 8px; }
+
+@media (max-width: 760px) {
+  .rangee { grid-template-columns: 1fr; }
+  .rangee.inverse .visuel { order: 0; }
+  .rangee .visuel, .rangee .visuel img.principale { min-height: 260px; }
+  .texte-rangee { padding: 24px 20px; }
+  .bandeau-produits h1 { font-size: 1.9rem; }
+}
+
+/* ---------- Avis clients (livre d'or) ---------- */
+.note-moyenne { font-size: 1.2rem; color: var(--bordeaux); font-weight: 700; }
+.coeurs-note button {
+  background: none;
+  border: 0;
+  font-size: 2rem;
+  color: var(--rose);
+  cursor: pointer;
+  padding: 0 2px;
+}
+.liste-avis { display: grid; gap: 14px; }
+.avis {
+  background: var(--blanc);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+  padding: 16px 18px;
+  border-left: 5px solid var(--or);
+}
+.avis .coeurs { color: var(--rose); font-size: 1.2rem; letter-spacing: 2px; }
+.avis .qui { font-size: 0.85rem; color: var(--bordeaux); font-weight: 700; margin: 0; }
+.avis p { margin: 6px 0 0; }
+.vide { background: var(--blanc); border-radius: var(--rayon); padding: 22px; text-align: center; }
+
+/* ---------- Chat : assistant Mémo ---------- */
+#chat-bouton {
+  position: fixed;
+  left: 18px; bottom: 18px;
+  z-index: 20;
+  border: 0;
+  border-radius: 999px;
+  background: var(--bordeaux);
+  color: var(--blanc);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 12px 20px;
+  cursor: pointer;
+  box-shadow: var(--ombre);
+}
+#chat-bouton:hover { background: var(--bordeaux-fonce); }
+
+#chat-fenetre {
+  display: none;
+  position: fixed;
+  left: 18px; bottom: 74px;
+  z-index: 20;
+  width: 330px;
+  max-width: calc(100% - 36px);
+  height: 440px;
+  max-height: calc(100% - 100px);
+  background: var(--blanc);
+  border-radius: var(--rayon);
+  box-shadow: 0 10px 30px rgba(125, 33, 69, 0.3);
+  flex-direction: column;
+  overflow: hidden;
+}
+#chat-fenetre.ouvert { display: flex; }
+
+.chat-entete { background: var(--bordeaux); color: var(--blanc); padding: 12px 16px; }
+.chat-entete strong { display: block; }
+.chat-entete span { font-size: 0.8rem; opacity: 0.85; }
+
+#chat-messages { flex: 1; overflow-y: auto; padding: 12px; background: var(--rose-fond); }
+.bulle {
+  max-width: 85%;
+  padding: 9px 13px;
+  border-radius: 14px;
+  margin: 0 0 8px;
+  font-size: 0.93rem;
+  line-height: 1.45;
+}
+.bulle.bot { background: var(--blanc); border: 1px solid var(--rose-clair); border-bottom-left-radius: 4px; }
+.bulle.moi { background: var(--rose); color: var(--blanc); margin-left: auto; border-bottom-right-radius: 4px; }
+.reponses-rapides { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 10px; }
+.reponses-rapides button {
+  background: var(--blanc);
+  border: 2px solid var(--bordeaux);
+  color: var(--bordeaux);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.reponses-rapides button:hover { background: var(--bordeaux); color: var(--blanc); }
+
+#chat-form { display: flex; border-top: 1px solid var(--rose-clair); }
+#chat-form input { flex: 1; border: 0; padding: 12px; font: inherit; }
+#chat-form input:focus { outline: none; }
+#chat-form button { border: 0; background: var(--bordeaux); color: var(--blanc); padding: 0 16px; font-weight: 700; cursor: pointer; }
+
+/* ==========================================================
+   E-COMMERCE SIMULÉ : menu, catégories, panier, compte, commande
+   ========================================================== */
+
+/* Focus visible au clavier (accessibilité) */
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--or);
+  outline-offset: 2px;
+}
+
+/* Menu : liens un peu plus serrés + menu déroulant Produits */
+nav ul#menu > li > a { padding: 8px 11px; }
+nav li { position: relative; }
+nav ul.sous-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 190px;
+  flex-direction: column;
+  gap: 0;
+  background: var(--blanc);
+  border-radius: 12px;
+  box-shadow: var(--ombre);
+  padding: 6px;
+  z-index: 30;
+}
+nav li:hover > ul.sous-menu,
+nav li:focus-within > ul.sous-menu { display: flex; }
+nav ul.sous-menu a { border-radius: 8px; padding: 8px 12px; font-weight: 500; }
+
+/* Pastille du nombre d'articles dans le panier */
+.compteur {
+  display: inline-block;
+  min-width: 22px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--or);
+  color: var(--blanc);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+/* Fil d'Ariane */
+.fil { font-size: 0.9rem; margin-bottom: 18px; }
+.fil ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0; }
+.fil li + li::before { content: "›"; margin-right: 6px; color: var(--or); }
+.fil [aria-current="page"] { font-weight: 700; color: var(--texte); }
+
+/* Boutons d'une carte produit */
+.boutons { display: flex; flex-wrap: wrap; gap: 8px; }
+.boutons .bouton { padding: 10px 18px; font-size: 0.95rem; }
+
+/* Message "ajouté au panier" */
+#toast {
+  position: fixed;
+  left: 50%;
+  bottom: 84px;
+  transform: translateX(-50%);
+  background: var(--texte);
+  color: var(--blanc);
+  padding: 10px 20px;
+  border-radius: 999px;
+  z-index: 40;
+  display: none;
+}
+
+/* Pages compte / connexion / vérification */
+.carte-formulaire { max-width: 520px; margin: 0 auto; }
+.liste-erreurs { margin: 10px 0 0; padding-left: 20px; }
+.avertissement {
+  background: #fff7e0;
+  border-left: 5px solid var(--or);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 0.92rem;
+  margin: 14px 0;
+}
+.code-demo { font-size: 1.6rem; font-weight: 700; letter-spacing: 4px; color: var(--bordeaux); }
+
+/* Tableau des commandes */
+.tableau-defilant { overflow-x: auto; }
+table.commandes { width: 100%; border-collapse: collapse; background: var(--blanc); border-radius: 12px; overflow: hidden; }
+table.commandes th { background: var(--bordeaux); color: var(--blanc); text-align: left; }
+table.commandes th, table.commandes td { padding: 10px 12px; border-bottom: 1px solid var(--rose-clair); }
+
+/* Panier et commande : deux colonnes sur ordinateur */
+.panier-grille { display: grid; grid-template-columns: 2fr 1fr; gap: 28px; align-items: start; }
+.ligne-panier {
+  display: grid;
+  grid-template-columns: 84px 1fr auto;
+  gap: 14px;
+  align-items: center;
+  background: var(--blanc);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+  padding: 12px;
+  margin-bottom: 14px;
+}
+.ligne-panier .visuel {
+  width: 84px; height: 84px; min-height: 0;
+  padding: 0; font-size: 2.2rem;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 12px; overflow: hidden;
+  background: var(--rose-clair);
+}
+.ligne-panier .visuel img.principale { height: 84px; min-height: 0; width: 84px; }
+.ligne-panier .miniatures { display: none; }
+.ligne-panier h3 { font-size: 1.05rem; margin: 0 0 2px; }
+.ligne-panier p { margin: 0; font-size: 0.9rem; }
+.quantite { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+.quantite button {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--bordeaux);
+  background: var(--blanc);
+  color: var(--bordeaux);
+  font-size: 1.1rem; font-weight: 700;
+  cursor: pointer;
+}
+.lien-supprimer { background: none; border: 0; color: var(--bordeaux); text-decoration: underline; cursor: pointer; font: inherit; font-size: 0.85rem; }
+.resume { background: var(--blanc); border-radius: var(--rayon); box-shadow: var(--ombre); padding: 22px; position: sticky; top: 90px; }
+.resume .ligne { display: flex; justify-content: space-between; margin: 8px 0; }
+.resume .total { font-size: 1.2rem; font-weight: 700; color: var(--bordeaux); border-top: 2px solid var(--rose-clair); padding-top: 10px; }
+.options-paiement label { display: flex; gap: 10px; align-items: center; font-weight: 500; background: var(--blanc); border: 2px solid var(--rose-clair); border-radius: 12px; padding: 10px 12px; margin: 8px 0; cursor: pointer; }
+.options-paiement input { width: auto; }
+.deux-champs { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
+
+@media (max-width: 760px) {
+  /* Menu déroulant : sur téléphone, les sous-catégories sont affichées dans le menu */
+  nav ul.sous-menu { display: flex; position: static; box-shadow: none; padding: 0 0 0 16px; min-width: 0; }
+  .panier-grille { grid-template-columns: 1fr; }
+  .resume { position: static; }
+  .deux-champs { grid-template-columns: 1fr; }
+  .ligne-panier { grid-template-columns: 70px 1fr; }
+  .ligne-panier .total-ligne { grid-column: 1 / -1; }
+}
+
+/* ---------- Bouton retour en haut ---------- */
+#haut {
+  display: none;
+  position: fixed;
+  right: 18px; bottom: 18px;
+  width: 46px; height: 46px;
+  border: 0; border-radius: 50%;
+  background: var(--bordeaux);
+  color: var(--blanc);
+  font-size: 1.3rem;
+  cursor: pointer;
+  box-shadow: var(--ombre);
+}
+
+/* ==========================================================
+   AFFICHAGE TÉLÉPHONE (écrans de moins de 760 px de large)
+   ========================================================== */
+@media (max-width: 760px) {
+  .bouton-menu { display: block; }
+
+  nav { width: 100%; }
+  .barre { flex-wrap: wrap; }
+  nav ul {
+    display: none;            /* menu caché par défaut sur téléphone */
+    flex-direction: column;
+    padding: 10px 0;
+  }
+  nav ul.ouvert { display: flex; }   /* affiché quand on clique sur ☰ */
+
+  .hero h1 { font-size: 2rem; }
+  .detail { grid-template-columns: 1fr; }
+  section { padding: 40px 0; }
+}
