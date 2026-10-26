@@ -5,320 +5,233 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Votre Panier — Memora</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Supabase CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
   <style>
-    /* Styles spécifiques pour la page Panier Originale */
-    .cart-container {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 0 20px;
-      display: grid;
-      grid-template-columns: 1fr 380px;
-      gap: 30px;
+    :root {
+      --primary-rose: #D85A7F;
+      --soft-pink: #FDF2F4;
+      --accent-gold: #D4AF37;
+      --text-dark: #3A2E33;
+      --text-muted: #8C7B83;
+      --bg-light: #FFFAFC;
+      --white: #FFFFFF;
+      --border-color: #F3E2E6;
+      --font-heading: 'Great Vibes', cursive;
+      --font-sans: 'Montserrat', sans-serif;
+      --font-hand: 'Caveat', cursive;
     }
 
-    @media (max-width: 850px) {
-      .cart-container {
-        grid-template-columns: 1fr;
-      }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    .cart-header {
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* En-tête / Navigation */
+    header {
+      background: rgba(255, 250, 252, 0.95);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 25px;
-      border-bottom: 2px solid #f0f0f0;
-      padding-bottom: 15px;
+      padding: 15px 20px;
     }
 
-    .cart-header h1 {
-      font-size: 1.8rem;
-      color: #333;
-    }
-
-    .cart-count {
-      background-color: #e8d8ce;
-      color: #5a3d28;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-
-    /* Table & Card des produits */
-    .cart-items {
+    .brand-logo-box {
       display: flex;
       flex-direction: column;
-      gap: 20px;
-    }
-
-    .cart-item {
-      display: flex;
       align-items: center;
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 15px 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .cart-item:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    .brand-logo {
+      font-family: var(--font-heading);
+      font-size: 2.8rem;
+      color: var(--primary-rose);
+      line-height: 1;
     }
 
-    .cart-item img {
-      width: 90px;
-      height: 90px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    .cart-item-info {
-      flex: 1;
-      margin-left: 20px;
-    }
-
-    .cart-item-title {
+    .brand-slogan {
+      font-family: var(--font-hand);
       font-size: 1.1rem;
-      font-weight: 600;
-      color: #222;
-      margin-bottom: 5px;
+      color: var(--accent-gold);
+      margin-top: -2px;
     }
 
-    .cart-item-price {
-      color: #777;
-      font-size: 0.95rem;
-    }
-
-    .cart-item-quantity {
+    .nav-menu {
       display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-right: 20px;
+      gap: 30px;
+      list-style: none;
     }
 
-    .btn-qty {
-      width: 28px;
-      height: 28px;
-      border: 1px solid #ddd;
-      background: #fff;
-      border-radius: 50%;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.2s;
-    }
-
-    .btn-qty:hover {
-      background: #f0f0f0;
-    }
-
-    .remove-btn {
-      background: transparent;
-      border: none;
-      color: #e74c3c;
-      cursor: pointer;
-      font-size: 1.2rem;
-      padding: 5px;
+    .nav-menu a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-dark);
       transition: color 0.2s;
     }
 
-    .remove-btn:hover {
-      color: #c0392b;
+    .nav-menu a:hover, .nav-menu a.active {
+      color: var(--primary-rose);
     }
 
-    /* Cart Summary Card */
-    .cart-summary {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 25px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-      height: fit-content;
-    }
-
-    .summary-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: #333;
-    }
-
-    .summary-row {
+    .nav-right {
       display: flex;
-      justify-content: space-between;
-      margin-bottom: 15px;
-      color: #666;
-      font-size: 0.95rem;
+      align-items: center;
+      gap: 15px;
     }
 
-    .summary-row.total {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #111;
-      border-top: 1px solid #eee;
-      padding-top: 15px;
-      margin-top: 15px;
-    }
-
-    .checkout-btn {
-      width: 100%;
-      background: #222;
-      color: #fff;
-      border: none;
-      padding: 14px;
-      border-radius: 30px;
-      font-size: 1rem;
+    .btn-cart {
+      background-color: var(--soft-pink);
+      color: var(--primary-rose);
+      border: 1px solid var(--border-color);
+      padding: 8px 18px;
+      border-radius: 25px;
       font-weight: 600;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s;
-      text-decoration: none;
-      display: inline-block;
-      text-align: center;
-      margin-top: 15px;
-    }
-
-    .checkout-btn:hover {
-      background: #444;
-      transform: translateY(-1px);
-    }
-
-    .promo-code {
-      display: flex;
-      gap: 8px;
-      margin-top: 20px;
-    }
-
-    .promo-code input {
-      flex: 1;
-      padding: 10px 14px;
-      border: 1px solid #ddd;
-      border-radius: 20px;
-      outline: none;
       font-size: 0.9rem;
     }
 
-    .promo-code button {
-      background: #eee;
-      border: none;
-      padding: 0 16px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: background 0.2s;
-    }
-
-    .promo-code button:hover {
-      background: #ddd;
-    }
-
-    .empty-cart-msg {
+    /* Container Panier Vide */
+    .cart-container {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 0 20px;
       text-align: center;
-      padding: 50px 0;
-      color: #888;
     }
 
-    .empty-cart-msg a {
+    .cart-header {
+      margin-bottom: 40px;
+    }
+
+    .cart-header h1 {
+      font-size: 2.2rem;
+      color: var(--text-dark);
+      font-weight: 700;
+    }
+
+    .empty-cart-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 60px 30px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 10px 30px rgba(216, 90, 127, 0.05);
+    }
+
+    .empty-icon {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+
+    .empty-cart-card h2 {
+      font-size: 1.5rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+
+    .empty-cart-card p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
+
+    .btn-shop {
+      background-color: var(--primary-rose);
+      color: var(--white);
+      padding: 14px 35px;
+      border-radius: 30px;
+      font-weight: 600;
       display: inline-block;
-      margin-top: 15px;
-      color: #5a3d28;
-      font-weight: bold;
+      box-shadow: 0 8px 20px rgba(216, 90, 127, 0.25);
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-shop:hover {
+      background-color: #C24A6E;
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--white);
+      border-top: 1px solid var(--border-color);
+      padding: 50px 20px 25px 20px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 100px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Menu / Header -->
+  <!-- En-tête -->
   <header>
-    <div class="logo">
-      <a href="index.html">Memora</a>
+    <div class="nav-container">
+      <div class="brand-logo-box">
+        <a href="index.html" class="brand-logo">Memora</a>
+        <span class="brand-slogan">Chaque cadeau raconte une histoire</span>
+      </div>
+
+      <ul class="nav-menu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="produits.html">Cadeaux Personnalisés</a></li>
+        <li><a href="robes.html">Robes</a></li>
+        <li><a href="accessoires.html">Accessoires</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <a href="connexion.html" style="font-size: 0.9rem; font-weight: 500;">Compte</a>
+        <a href="panier.html" class="btn-cart active">🛒 Panier (0)</a>
+      </div>
     </div>
-    <nav>
-      <a href="index.html">Accueil</a>
-      <a href="produits.html">Boutique</a>
-      <a href="a-propos.html">À propos</a>
-      <a href="contact.html">Contact</a>
-      <a href="panier.html" class="active">Panier 🛒</a>
-    </nav>
   </header>
 
+  <!-- Contenu Panier Vide -->
   <main class="cart-container">
-    <!-- Section Produits dans le panier -->
-    <section>
-      <div class="cart-header">
-        <h1>Mon Panier</h1>
-        <span class="cart-count" id="item-count">3 Articles</span>
-      </div>
+    <div class="cart-header">
+      <h1>Mon Panier</h1>
+    </div>
 
-      <div class="cart-items" id="cart-items-list">
-        <!-- Exemple d'article 1 -->
-        <article class="cart-item">
-          <img src="images/produit1.jpg" alt="Coffret Memora" onerror="this.src='https://via.placeholder.com/90'">
-          <div class="cart-item-info">
-            <div class="cart-item-title">Coffret Memora Élégance</div>
-            <div class="cart-item-price">49.00 DT</div>
-          </div>
-          <div class="cart-item-quantity">
-            <button class="btn-qty">-</button>
-            <span>1</span>
-            <button class="btn-qty">+</button>
-          </div>
-          <button class="remove-btn" title="Supprimer">🗑️</button>
-        </article>
-
-        <!-- Exemple d'article 2 -->
-        <article class="cart-item">
-          <img src="images/produit2.jpg" alt="Accessoire Memora" onerror="this.src='https://via.placeholder.com/90'">
-          <div class="cart-item-info">
-            <div class="cart-item-title">Accessoire Personnalisé</div>
-            <div class="cart-item-price">19.00 DT</div>
-          </div>
-          <div class="cart-item-quantity">
-            <button class="btn-qty">-</button>
-            <span>2</span>
-            <button class="btn-qty">+</button>
-          </div>
-          <button class="remove-btn" title="Supprimer">🗑️</button>
-        </article>
-      </div>
-    </section>
-
-    <!-- Résumé de la Commande -->
-    <aside class="cart-summary">
-      <h2 class="summary-title">Résumé de la commande</h2>
-      
-      <div class="summary-row">
-        <span>Sous-total</span>
-        <span>87.00 DT</span>
-      </div>
-      <div class="summary-row">
-        <span>Livraison</span>
-        <span>7 DT</span>
-      </div>
-      <div class="summary-row">
-        <span>Réduction</span>
-        <span style="color: #27ae60;">-0.00 DT</span>
-      </div>
-
-      <div class="promo-code">
-        <input type="text" placeholder="Code promo">
-        <button>Appliquer</button>
-      </div>
-
-      <div class="summary-row total">
-        <span>Total</span>
-        <span>91.90 Dt</span>
-      </div>
-
-      <a href="checkout.html" class="checkout-btn">Passer la commande</a>
-    </aside>
+    <div class="empty-cart-card">
+      <div class="empty-icon">🛍️</div>
+      <h2>Votre panier est actuellement vide</h2>
+      <p>Vous n'avez pas encore ajouté de coffrets ou de cadeaux personnalisés à votre panier.</p>
+      <a href="index.html" class="btn-shop">Découvrir nos collections</a>
+    </div>
   </main>
 
   <footer>
-    <p class="petit">&copy; 2026 Memora. Tous droits réservés.</p>
+    <div class="brand-logo" style="font-size: 2.2rem;">Memora</div>
+    <p style="font-family: var(--font-hand); font-size: 1.3rem; color: var(--primary-rose); margin-bottom: 20px;">Chaque cadeau raconte une histoire</p>
+    <p>&copy; 2026 Memora Tunisie. Tous droits réservés.</p>
   </footer>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- CDN Supabase & Script -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="script.js"></script>
 </body>
 </html>
