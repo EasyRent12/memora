@@ -1,237 +1,711 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Votre Panier — Memora</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <style>
-    :root {
-      --primary-rose: #D85A7F;
-      --soft-pink: #FDF2F4;
-      --accent-gold: #D4AF37;
-      --text-dark: #3A2E33;
-      --text-muted: #8C7B83;
-      --bg-light: #FFFAFC;
-      --white: #FFFFFF;
-      --border-color: #F3E2E6;
-      --font-heading: 'Great Vibes', cursive;
-      --font-sans: 'Montserrat', sans-serif;
-      --font-hand: 'Caveat', cursive;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memora — Mon panier</title>
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <!-- Fonts Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    body {
-      background-color: var(--bg-light);
-      color: var(--text-dark);
-      font-family: var(--font-sans);
-      line-height: 1.6;
-    }
+    <style>
+        :root {
+            --primary-rose: #D85A7F;
+            --rose-hover: #C24A6E;
+            --soft-pink: #FDF2F4;
+            --accent-gold: #D4AF37;
+            --text-dark: #3A2E33;
+            --text-muted: #8C7B83;
+            --bg-light: #FFFAFC;
+            --white: #FFFFFF;
+            --border-color: #F3E2E6;
+            --font-heading: 'Great Vibes', cursive;
+            --font-sans: 'Montserrat', sans-serif;
+            --font-hand: 'Caveat', cursive;
+        }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-sans);
+        }
 
-    /* En-tête / Navigation */
-    header {
-      background: rgba(255, 250, 252, 0.95);
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid var(--border-color);
-    }
+        body {
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
 
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 20px;
-    }
+        /* HEADER */
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
 
-    .brand-logo-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+        .brand-logo-box {
+            display: flex;
+            flex-direction: column;
+        }
 
-    .brand-logo {
-      font-family: var(--font-heading);
-      font-size: 2.8rem;
-      color: var(--primary-rose);
-      line-height: 1;
-    }
+        .brand-logo {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--primary-rose);
+            line-height: 1;
+        }
 
-    .brand-slogan {
-      font-family: var(--font-hand);
-      font-size: 1.1rem;
-      color: var(--accent-gold);
-      margin-top: -2px;
-    }
+        .brand-slogan {
+            font-family: var(--font-hand);
+            font-size: 1rem;
+            color: var(--accent-gold);
+        }
 
-    .nav-menu {
-      display: flex;
-      gap: 30px;
-      list-style: none;
-    }
+        nav {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
 
-    .nav-menu a {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--text-dark);
-      transition: color 0.2s;
-    }
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
 
-    .nav-menu a:hover, .nav-menu a.active {
-      color: var(--primary-rose);
-    }
+        nav a:hover, nav a.active {
+            color: var(--primary-rose);
+        }
 
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
+        /* TITRE */
+        .titre {
+            text-align: center;
+            padding: 40px 15px 25px;
+        }
 
-    .btn-cart {
-      background-color: var(--soft-pink);
-      color: var(--primary-rose);
-      border: 1px solid var(--border-color);
-      padding: 8px 18px;
-      border-radius: 25px;
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
+        .titre h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
 
-    /* Container Panier Vide */
-    .cart-container {
-      max-width: 800px;
-      margin: 60px auto;
-      padding: 0 20px;
-      text-align: center;
-    }
+        .titre p {
+            color: var(--text-muted);
+            font-size: 15px;
+            font-family: var(--font-hand);
+            font-size: 1.3rem;
+        }
 
-    .cart-header {
-      margin-bottom: 40px;
-    }
+        /* CONTENU */
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto 50px;
+        }
 
-    .cart-header h1 {
-      font-size: 2.2rem;
-      color: var(--text-dark);
-      font-weight: 700;
-    }
+        .panier-layout {
+            display: grid;
+            grid-template-columns: 1.7fr 1fr;
+            gap: 25px;
+            align-items: start;
+        }
 
-    .empty-cart-card {
-      background: var(--white);
-      border-radius: 24px;
-      padding: 60px 30px;
-      border: 1px solid var(--border-color);
-      box-shadow: 0 10px 30px rgba(216, 90, 127, 0.05);
-    }
+        .produits,
+        .resume {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 18px rgba(216, 90, 127, 0.05);
+        }
 
-    .empty-icon {
-      font-size: 4rem;
-      margin-bottom: 20px;
-    }
+        .section-titre {
+            font-size: 20px;
+            margin-bottom: 22px;
+            font-weight: 700;
+        }
 
-    .empty-cart-card h2 {
-      font-size: 1.5rem;
-      color: var(--text-dark);
-      margin-bottom: 10px;
-    }
+        /* PRODUITS */
+        .produit {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
 
-    .empty-cart-card p {
-      color: var(--text-muted);
-      font-size: 1rem;
-      margin-bottom: 30px;
-    }
+        .produit:last-child {
+            border-bottom: none;
+        }
 
-    .btn-shop {
-      background-color: var(--primary-rose);
-      color: var(--white);
-      padding: 14px 35px;
-      border-radius: 30px;
-      font-weight: 600;
-      display: inline-block;
-      box-shadow: 0 8px 20px rgba(216, 90, 127, 0.25);
-      transition: background 0.3s, transform 0.2s;
-    }
+        .produit img {
+            width: 90px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+            background: var(--soft-pink);
+        }
 
-    .btn-shop:hover {
-      background-color: #C24A6E;
-      transform: translateY(-2px);
-    }
+        .info {
+            flex: 1;
+            min-width: 0;
+        }
 
-    /* Footer */
-    footer {
-      background: var(--white);
-      border-top: 1px solid var(--border-color);
-      padding: 50px 20px 25px 20px;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-top: 100px;
-    }
-  </style>
+        .info h3 {
+            font-size: 16px;
+            margin-bottom: 6px;
+            overflow-wrap: anywhere;
+        }
+
+        .prix {
+            color: var(--primary-rose);
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .quantite {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .quantite button {
+            width: 28px;
+            height: 28px;
+            border: 1px solid var(--border-color);
+            background: var(--soft-pink);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            color: var(--primary-rose);
+            font-weight: bold;
+        }
+
+        .quantite button:hover {
+            background: var(--primary-rose);
+            color: var(--white);
+        }
+
+        .sous-total-produit {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .supprimer {
+            border: none;
+            background: transparent;
+            color: #e53935;
+            cursor: pointer;
+            font-size: 13px;
+            padding: 8px;
+        }
+
+        .supprimer:hover {
+            text-decoration: underline;
+        }
+
+        /* PANIER VIDE */
+        .panier-vide {
+            text-align: center;
+            padding: 35px 10px;
+        }
+
+        .panier-vide .emoji {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .panier-vide h3 {
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .panier-vide p {
+            color: var(--text-muted);
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        /* RÉSUMÉ */
+        .ligne {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+
+        .livraison-info {
+            color: var(--text-muted);
+            font-size: 12px;
+            margin-top: -8px;
+            margin-bottom: 16px;
+        }
+
+        .ligne-total {
+            border-top: 1px solid var(--border-color);
+            padding-top: 18px;
+            margin-top: 18px;
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+        .ligne-total span:last-child {
+            color: var(--primary-rose);
+        }
+
+        /* PAIEMENT */
+        .paiement {
+            margin-top: 25px;
+        }
+
+        .paiement h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .option-paiement {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 9px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            line-height: 1.4;
+            background: var(--white);
+        }
+
+        .option-paiement:has(input:checked) {
+            border-color: var(--primary-rose);
+            background: var(--soft-pink);
+        }
+
+        .option-paiement input {
+            accent-color: var(--primary-rose);
+        }
+
+        .option-paiement span {
+            font-size: 13px;
+        }
+
+        /* BOUTON DE COMMANDE */
+        .btn-commande {
+            width: 100%;
+            border: none;
+            border-radius: 25px;
+            padding: 15px;
+            background: var(--primary-rose);
+            color: var(--white);
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+            box-shadow: 0 6px 15px rgba(216, 90, 127, 0.2);
+        }
+
+        .btn-commande:hover {
+            background: var(--rose-hover);
+            transform: translateY(-2px);
+        }
+
+        /* MESSAGE */
+        .message {
+            display: none;
+            margin: 25px auto 0;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            line-height: 1.6;
+            font-size: 14px;
+            max-width: 1100px;
+        }
+
+        .message.succes {
+            display: block;
+            background: #e9f8ed;
+            color: #216e39;
+            border: 1px solid #b8e4c3;
+        }
+
+        .message.erreur {
+            display: block;
+            background: #fff0f0;
+            color: #a32020;
+            border: 1px solid #f0c1c1;
+        }
+
+        /* BOUTONS CATÉGORIES */
+        .boutons-categories {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn-categorie {
+            display: inline-block;
+            padding: 13px 22px;
+            background: var(--soft-pink);
+            color: var(--primary-rose);
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 25px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .btn-categorie:hover {
+            background: var(--primary-rose);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--white);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            padding: 30px 15px;
+            margin-top: 50px;
+            line-height: 1.8;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        footer span {
+            color: var(--primary-rose);
+            font-weight: 600;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+            .panier-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-  <!-- En-tête -->
-  <header>
-    <div class="nav-container">
-      <div class="brand-logo-box">
+<header>
+    <div class="brand-logo-box">
         <a href="index.html" class="brand-logo">Memora</a>
         <span class="brand-slogan">Chaque cadeau raconte une histoire</span>
-      </div>
-
-      <ul class="nav-menu">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="produits.html">Cadeaux Personnalisés</a></li>
-        <li><a href="robes.html">Robes</a></li>
-        <li><a href="accessoires.html">Accessoires</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-
-      <div class="nav-right">
-        <a href="connexion.html" style="font-size: 0.9rem; font-weight: 500;">Compte</a>
-        <a href="panier.html" class="btn-cart active">🛒 Panier (0)</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- Contenu Panier Vide -->
-  <main class="cart-container">
-    <div class="cart-header">
-      <h1>Mon Panier</h1>
     </div>
 
-    <div class="empty-cart-card">
-      <div class="empty-icon">🛍️</div>
-      <h2>Votre panier est actuellement vide</h2>
-      <p>Vous n'avez pas encore ajouté de coffrets ou de cadeaux personnalisés à votre panier.</p>
-      <a href="index.html" class="btn-shop">Découvrir nos collections</a>
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="produits.html">Cadeaux Personnalisés</a>
+        <a href="robes.html">Robes</a>
+        <a href="accessoires.html">Accessoires</a>
+        <a href="panier.html" class="active">Mon panier 🛒</a>
+        <a href="connexion.html">Connexion</a>
+    </nav>
+</header>
+
+<section class="titre">
+    <h1>Mon panier 🛒</h1>
+    <p>Vérifiez vos coffrets et articles personnalisés avant de confirmer.</p>
+</section>
+
+<main class="container">
+
+    <div class="panier-layout" id="contenuPanier">
+
+        <section class="produits">
+            <h2 class="section-titre">Mes articles</h2>
+
+            <div id="listeProduits"></div>
+
+            <div id="panierVide" class="panier-vide" hidden>
+                <div class="emoji">🛍️</div>
+                <h3>Votre panier est vide</h3>
+                <p>Vous n'avez pas encore ajouté de coffrets ou de cadeaux personnalisés à votre panier.</p>
+            </div>
+        </section>
+
+        <aside class="resume" id="resume">
+            <h2 class="section-titre">Résumé de la commande</h2>
+
+            <div class="ligne">
+                <span>Sous-total</span>
+                <strong id="sousTotal">0 DT</strong>
+            </div>
+
+            <div class="ligne">
+                <span>Livraison</span>
+                <strong id="fraisLivraison">7 DT</strong>
+            </div>
+
+            <p class="livraison-info">
+                Frais de livraison fixes : 7 DT partout en Tunisie.
+            </p>
+
+            <div class="ligne ligne-total">
+                <span>Total</span>
+                <span id="total">0 DT</span>
+            </div>
+
+            <div class="paiement">
+                <h3>Mode de paiement</h3>
+
+                <label class="option-paiement">
+                    <input type="radio" name="paiement" value="livraison" checked>
+                    <span>💵 Paiement à la livraison</span>
+                </label>
+
+                <label class="option-paiement">
+                    <input type="radio" name="paiement" value="carte">
+                    <span>💳 Carte bancaire (démo uniquement)</span>
+                </label>
+            </div>
+
+            <button type="button" class="btn-commande" id="btnCommande" onclick="commander()">
+                ✓ Confirmer ma commande
+            </button>
+
+        </aside>
+
     </div>
-  </main>
 
-  <footer>
-    <div class="brand-logo" style="font-size: 2.2rem;">Memora</div>
-    <p style="font-family: var(--font-hand); font-size: 1.3rem; color: var(--primary-rose); margin-bottom: 20px;">Chaque cadeau raconte une histoire</p>
-    <p>&copy; 2026 Memora Tunisie. Tous droits réservés.</p>
-  </footer>
+    <div id="message" class="message" role="status" aria-live="polite"></div>
 
-  <!-- CDN Supabase & Script -->
+    <!-- BOUTONS CATÉGORIES -->
+    <div class="boutons-categories">
+        <a href="produits.html" class="btn-categorie">🎁 Découvrir les cadeaux</a>
+        <a href="robes.html" class="btn-categorie">👗 Découvrir les robes</a>
+    </div>
+
+</main>
+
+<footer>
+    <div class="brand-logo" style="font-size: 2rem;">Memora</div>
+    <p style="font-family: var(--font-hand); font-size: 1.2rem; color: var(--primary-rose); margin-bottom: 10px;">Chaque cadeau raconte une histoire</p>
+    <p>© 2026 <span>Memora</span> — Tous droits réservés.</p>
+</footer>
+
+<script>
+    const CLE_PANIER = "panierMemora";
+    const FRAIS_LIVRAISON = 7;
+
+    function lirePanier() {
+        try {
+            const donnees = JSON.parse(localStorage.getItem(CLE_PANIER) || "[]");
+            return Array.isArray(donnees) ? donnees.filter(produit => produit !== null) : [];
+        } catch (erreur) {
+            return [];
+        }
+    }
+
+    function enregistrerPanier(panier) {
+        localStorage.setItem(CLE_PANIER, JSON.stringify(panier));
+    }
+
+    function prixFormate(prix) {
+        return Number(prix) + " DT";
+    }
+
+    function afficherMessage(texte, type) {
+        const message = document.getElementById("message");
+        message.textContent = texte;
+        message.className = "message " + type;
+    }
+
+    function cacherMessage() {
+        const message = document.getElementById("message");
+        message.textContent = "";
+        message.className = "message";
+    }
+
+    function afficherPanier() {
+        const panier = lirePanier();
+        const liste = document.getElementById("listeProduits");
+        const panierVide = document.getElementById("panierVide");
+        const resume = document.getElementById("resume");
+
+        liste.innerHTML = "";
+
+        if (panier.length === 0) {
+            panierVide.hidden = false;
+            resume.hidden = true;
+
+            document.getElementById("sousTotal").textContent = prixFormate(0);
+            document.getElementById("fraisLivraison").textContent = prixFormate(0);
+            document.getElementById("total").textContent = prixFormate(0);
+            return;
+        }
+
+        panierVide.hidden = true;
+        resume.hidden = false;
+
+        let sousTotal = 0;
+
+        panier.forEach((produit, index) => {
+            const prix = Number(produit.prix) || 0;
+            const quantite = Math.max(1, parseInt(produit.quantite, 10) || 1);
+
+            sousTotal += prix * quantite;
+
+            const article = document.createElement("article");
+            article.className = "produit";
+
+            if (produit.image) {
+                const image = document.createElement("img");
+                image.src = produit.image;
+                image.alt = produit.nom || "Coffret Memora";
+                image.onerror = function () {
+                    this.style.display = "none";
+                };
+                article.appendChild(image);
+            }
+
+            const info = document.createElement("div");
+            info.className = "info";
+
+            const nom = document.createElement("h3");
+            nom.textContent = produit.nom || "Coffret Personnalisé";
+
+            const prixElement = document.createElement("p");
+            prixElement.className = "prix";
+            prixElement.textContent = prixFormate(prix) + " / unité";
+
+            const quantiteDiv = document.createElement("div");
+            quantiteDiv.className = "quantite";
+
+            const boutonMoins = document.createElement("button");
+            boutonMoins.type = "button";
+            boutonMoins.textContent = "−";
+            boutonMoins.setAttribute("aria-label", "Diminuer la quantité");
+            boutonMoins.onclick = () => modifierQuantite(index, -1);
+
+            const texteQuantite = document.createElement("span");
+            texteQuantite.textContent = quantite;
+
+            const boutonPlus = document.createElement("button");
+            boutonPlus.type = "button";
+            boutonPlus.textContent = "+";
+            boutonPlus.setAttribute("aria-label", "Augmenter la quantité");
+            boutonPlus.onclick = () => modifierQuantite(index, 1);
+
+            quantiteDiv.append(boutonMoins, texteQuantite, boutonPlus);
+
+            const sousTotalProduit = document.createElement("p");
+            sousTotalProduit.className = "sous-total-produit";
+            sousTotalProduit.textContent = "Sous-total : " + prixFormate(prix * quantite);
+
+            info.append(nom, prixElement, quantiteDiv, sousTotalProduit);
+
+            const boutonSupprimer = document.createElement("button");
+            boutonSupprimer.type = "button";
+            boutonSupprimer.className = "supprimer";
+            boutonSupprimer.textContent = "🗑️ Supprimer";
+            boutonSupprimer.onclick = () => supprimerProduit(index);
+
+            article.append(info, boutonSupprimer);
+            liste.appendChild(article);
+        });
+
+        const total = sousTotal + FRAIS_LIVRAISON;
+
+        document.getElementById("sousTotal").textContent = prixFormate(sousTotal);
+        document.getElementById("fraisLivraison").textContent = prixFormate(FRAIS_LIVRAISON);
+        document.getElementById("total").textContent = prixFormate(total);
+    }
+
+    function modifierQuantite(index, variation) {
+        const panier = lirePanier();
+        if (!panier[index]) return;
+
+        const quantiteActuelle = Math.max(1, parseInt(panier[index].quantite, 10) || 1);
+        const nouvelleQuantite = quantiteActuelle + variation;
+
+        if (nouvelleQuantite < 1) return;
+
+        panier[index].quantite = nouvelleQuantite;
+        enregistrerPanier(panier);
+        cacherMessage();
+        afficherPanier();
+    }
+
+    function supprimerProduit(index) {
+        const panier = lirePanier();
+        panier.splice(index, 1);
+        enregistrerPanier(panier);
+        cacherMessage();
+        afficherPanier();
+    }
+
+    function commander() {
+        const panier = lirePanier();
+
+        if (panier.length === 0) {
+            afficherMessage("Votre panier est vide. Ajoutez un coffret avant de confirmer votre commande.", "erreur");
+            return;
+        }
+
+        const choix = document.querySelector('input[name="paiement"]:checked');
+
+        if (!choix) {
+            afficherMessage("Veuillez choisir un mode de paiement.", "erreur");
+            return;
+        }
+
+        if (choix.value === "carte") {
+            afficherMessage("Le paiement par carte bancaire n'est pas encore disponible. Veuillez choisir le paiement à la livraison.", "erreur");
+            return;
+        }
+
+        let sousTotal = 0;
+        panier.forEach(produit => {
+            const prix = Number(produit.prix) || 0;
+            const quantite = Math.max(1, parseInt(produit.quantite, 10) || 1);
+            sousTotal += prix * quantite;
+        });
+
+        const total = sousTotal + FRAIS_LIVRAISON;
+        const numeroCommande = "MEM-" + Date.now().toString().slice(-8);
+
+        enregistrerPanier([]);
+        afficherPanier();
+
+        afficherMessage(
+            "🎉 Félicitations ! Votre commande a été confirmée avec succès ! " +
+            "Numéro de commande : " + numeroCommande + ". " +
+            "Total : " + prixFormate(total) + ". " +
+            "Paiement à la livraison. Merci d'avoir choisi Memora ♡",
+            "succes"
+        );
+    }
+
+    afficherPanier();
+</script>
+<!-- CDN Supabase & Script -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="script.js"></script>
+
 </body>
 </html>
+  
